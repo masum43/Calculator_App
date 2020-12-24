@@ -29,7 +29,7 @@
     <string name="title_activity_unit_weight">UnitWeight</string>
     <string name="title_activity_unit_temperature">UnitTemperature</string>
     <string name="openBracket">(</string>
-    <string name="closeBracket">)</string>
+    <string name="closeBracket">( )</string>
     <string name="history">History</string>
 
     <string-array name="area">

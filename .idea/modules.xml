@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CalculatorApp.iml" filepath="$PROJECT_DIR$/CalculatorApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Calculator_App.iml" filepath="$PROJECT_DIR$/.idea/modules/Calculator_App.iml" group="Calculator_App" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Calculator_App-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Calculator_App-app.iml" group="Calculator_App/app" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Calculator_App/app" />
     </modules>
   </component>
 </project>

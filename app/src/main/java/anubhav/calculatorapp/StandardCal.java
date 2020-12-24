@@ -17,6 +17,7 @@ public class StandardCal extends AppCompatActivity {
     private String text="";
     private Double result=0.0;
     private DBHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
