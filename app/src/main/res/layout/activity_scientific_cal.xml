@@ -9,79 +9,10 @@
     android:orientation="vertical"
     tools:context="anubhav.calculatorapp.ScientificCal">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimaryDark"
-             >
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Common"
-                    android:id="@+id/commonMode"
-                    android:background="@null"
-                    android:textColor="@color/colorBtnText"
-                    android:textSize="@dimen/btnSmallText"
-                    android:onClick="onClick"
-                    android:textAllCaps="false"
-                     />
-                <TextView
-                    android:id="@+id/separate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="|"
-                    android:layout_marginTop="15dp"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_toEndOf="@+id/commonMode"
-                    android:layout_toRightOf="@+id/commonMode" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Scientific"
-                    android:id="@+id/radMode"
-                    android:background="@null"
-                    android:textColor="@color/colorBtnText"
-                    android:textSize="@dimen/btnSmallText"
-                    android:onClick="onClick"
-                    android:layout_toEndOf="@+id/separate"
-                    android:layout_toRightOf="@+id/separate"
-                    android:textAllCaps="false"
-                     />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_history_24"
-                    android:layout_marginEnd="10dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:id="@+id/history"
-                    android:onClick="onClick"
-                    android:layout_marginRight="10dp" />
-
-            </RelativeLayout>
-
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <include layout="@layout/content_scientific_cal" />
+    <include
+        android:visibility="visible"
+        layout="@layout/content_scientific_cal" />
 
 
 </LinearLayout>

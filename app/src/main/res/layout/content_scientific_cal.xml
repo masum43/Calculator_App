@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/ll_scientific"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -44,12 +45,12 @@
             android:gravity="end"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="@string/mode1"
             android:id="@+id/degMode"
             android:background="@null"
-            android:textColor="@color/colorBtnText"
+            android:textColor="@color/red_light"
             android:textSize="@dimen/btnSmallText"
             android:onClick="onClick"
             android:layout_alignParentBottom="true"
@@ -68,7 +69,7 @@
             android:layout_toLeftOf="@+id/degMode" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="@string/mode2"
             android:id="@+id/radMode"
@@ -81,7 +82,6 @@
             android:textAllCaps="false"
             android:layout_toLeftOf="@+id/separate" />
     </RelativeLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -99,17 +99,19 @@
             android:layout_weight="1"
             android:weightSum="4"
             >
+
             <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
                 android:id="@+id/square"
-                android:text="@string/square"
-                android:onClick="onClick"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@null"
+                android:fontFamily="@font/actor"
+                android:onClick="onClick"
+                android:text="@string/square"
+                android:textAllCaps="false"
                 android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/scientificBtnText"
-                android:textAllCaps="false"/>
+                android:textSize="@dimen/scientificBtnText" />
 
             <Button
                 android:layout_width="0dp"
@@ -219,7 +221,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:id="@+id/toggle"
+                android:id="@+id/toggleSci"
                 android:text="@string/toggle"
                 android:checked="false"
                 android:textAllCaps="false"
@@ -535,10 +537,6 @@
 
         </LinearLayout>
     </LinearLayout>
-
-
-
-
 
 
 </LinearLayout>
