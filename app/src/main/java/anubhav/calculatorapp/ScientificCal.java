@@ -29,7 +29,7 @@ public class ScientificCal extends AppCompatActivity {
 
         e1 = (EditText) findViewById(R.id.editText);
         e2 = (EditText) findViewById(R.id.editText2);
-        mode = (Button) findViewById(R.id.mode);
+        mode = (Button) findViewById(R.id.degMode);
         toggle = (Button) findViewById(R.id.toggle);
         square = (Button) findViewById(R.id.square);
         xpowy = (Button) findViewById(R.id.xpowy);
@@ -93,7 +93,7 @@ public class ScientificCal extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.mode:
+            case R.id.degMode:
                 //change the angle property for trignometric operations if mode button is clicked
                 if(angleMode==1)
                 {
@@ -458,7 +458,7 @@ public class ScientificCal extends AppCompatActivity {
                 e1.setText(e1.getText() + "(");
                 break;
 
-            case R.id.closeBracket:
+            case R.id.openCloseBracket:
                 if(e2.length()!=0)
                     e1.setText(e1.getText() +e2.getText().toString()+ ")");
                 else

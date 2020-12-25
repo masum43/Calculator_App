@@ -3,7 +3,7 @@ package anubhav.calculatorapp;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
 import android.view.View;
 import android.widget.EditText;
 
@@ -221,7 +221,7 @@ public class StandardCal extends AppCompatActivity {
                 e1.setText(e1.getText()+"(");
                 break;
 
-            case R.id.closeBracket:
+            case R.id.openCloseBracket:
                 e1.setText(e1.getText()+")");
                 break;
 
