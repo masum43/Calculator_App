@@ -62,7 +62,6 @@ public class CommonCalFrag extends Fragment {
         e2 = (EditText) v.findViewById(R.id.editText2);
         dbHelper = new DBHelper(getContext());
 
-        e2.setText("0");
         return v;
     }
 
@@ -186,14 +185,13 @@ public class CommonCalFrag extends Fragment {
                 }
                 break;
             case R.id.equal:
-                 /*for more knowledge on DoubleEvaluator and its tutorial go to the below link
-                http://javaluator.sourceforge.net/en/home/*/
+
                 if(e2.length()!=0)
                 {
                     text=e2.getText().toString();
                     expression=e1.getText().toString()+text;
                 }
-                e1.setText("");
+                e1.setText(expression);
                 if(expression.length()==0)
                     expression="0.0";
                 DoubleEvaluator evaluator = new DoubleEvaluator();

@@ -42,7 +42,7 @@
             android:clickable="false"
             android:editable="false"
             android:textColor="#FFFFFF"
-            android:textSize="25sp"
+            android:textSize="55sp"
             android:textAlignment="textEnd"
             android:gravity="end" />
     </LinearLayout>
