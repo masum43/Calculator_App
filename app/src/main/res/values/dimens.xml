@@ -4,6 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="btn_txt_size">35sp</dimen>
-    <dimen name="scientificBtnText">25sp</dimen>
+    <dimen name="scientificBtnText">24sp</dimen>
     <dimen name="btnSmallText">20sp</dimen>
 </resources>

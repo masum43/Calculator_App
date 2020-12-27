@@ -28,6 +28,7 @@
             android:editable="false"
             android:textColor="#FFFFFF"
             android:textSize="25sp"
+            android:layout_centerInParent="true"
             android:background="@null"
             android:textAlignment="textEnd"
             android:gravity="end"/>
@@ -40,9 +41,14 @@
             android:editable="false"
             android:background="@null"
             android:textColor="#FFFFFF"
-            android:textSize="25sp"
+            android:textSize="45sp"
             android:textAlignment="textEnd"
             android:gravity="end"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
 
         <Button
             android:layout_width="50dp"
@@ -77,9 +83,9 @@
             android:textColor="@color/colorBtnText"
             android:textSize="@dimen/btnSmallText"
             android:onClick="onClick"
+            android:textAllCaps="false"
             android:layout_alignParentBottom="true"
             android:layout_toStartOf="@+id/separate"
-            android:textAllCaps="false"
             android:layout_toLeftOf="@+id/separate" />
     </RelativeLayout>
 
@@ -97,8 +103,106 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:weightSum="4"
             >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/clear"
+                android:id="@+id/clear"
+                android:background="@null"
+                android:textColor="@color/colorBtnText"
+                android:textSize="@dimen/btnSmallText"
+                android:onClick="onClick" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/backspace"
+                android:id="@+id/backSpace"
+                android:background="@null"
+                android:textColor="@color/colorBtnText"
+                android:textSize="@dimen/scientificBtnText"
+                android:onClick="onClick" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="( )"
+                android:id="@+id/openCloseBracket"
+                android:background="@null"
+                android:textColor="@color/colorBtnText"
+                android:textSize="@dimen/scientificBtnText"
+                android:onClick="onClick"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/percent"
+                android:id="@+id/percent"
+                android:background="@null"
+                android:textColor="@color/colorBtnText"
+                android:textSize="@dimen/scientificBtnText"
+                android:onClick="onClick"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/pi"
+                android:id="@+id/pi"
+                android:background="@null"
+                android:textColor="@color/colorBtnText"
+                android:textSize="@dimen/scientificBtnText"
+                android:onClick="onClick"
+                android:textAllCaps="false"/>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textColor="@color/colorBtnText"
+            android:textSize="@dimen/scientificBtnText"
+            >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/toggleSci"
+                android:text="@string/toggle"
+                android:checked="false"
+                android:textAllCaps="false"
+                android:background="@null"
+                android:textColor="@color/colorBtnText"
+                android:textSize="@dimen/btnSmallText"
+                android:onClick="onClick" />
+
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/sqrt"
+                android:text="@string/sqrt"
+                android:background="@null"
+                android:textColor="@color/colorBtnText"
+                android:textSize="@dimen/scientificBtnText"
+                android:onClick="onClick"
+                android:textAllCaps="false"/>
 
             <Button
                 android:id="@+id/square"
@@ -129,39 +233,26 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="log"
-                android:id="@+id/log"
-                android:onClick="onClick"
+                android:text="@string/divide"
+                android:id="@+id/divide"
                 android:background="@null"
                 android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/btnSmallText"
-                android:textAllCaps="false"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/clear"
-                android:id="@+id/clear"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/btnSmallText"
+                android:textSize="@dimen/scientificBtnText"
                 android:onClick="onClick" />
 
 
-        </LinearLayout>
 
+
+
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:weightSum="4"
-            android:background="@null"
-            android:textColor="@color/colorBtnText"
-            android:textSize="@dimen/scientificBtnText"
             >
-
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -173,6 +264,36 @@
                 android:textColor="@color/colorBtnText"
                 android:textSize="@dimen/btnSmallText"
                 android:textAllCaps="false"/>
+
+
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/factorial"
+                android:id="@+id/factorial"
+                android:onClick="onClick"
+                android:background="@null"
+                android:textColor="@color/colorBtnText"
+                android:textSize="@dimen/scientificBtnText"
+                android:textAllCaps="false"/>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
 
             <Button
                 android:layout_width="0dp"
@@ -186,97 +307,6 @@
                 android:textSize="@dimen/btnSmallText"
                 android:textAllCaps="false"/>
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/tan"
-                android:id="@+id/tan"
-                android:onClick="onClick"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/btnSmallText"
-                android:textAllCaps="false"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/backspace"
-                android:id="@+id/backSpace"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/scientificBtnText"
-                android:onClick="onClick" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            >
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:id="@+id/toggleSci"
-                android:text="@string/toggle"
-                android:checked="false"
-                android:textAllCaps="false"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/btnSmallText"
-                android:onClick="onClick" />
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/factorial"
-                android:id="@+id/factorial"
-                android:onClick="onClick"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/scientificBtnText"
-                android:textAllCaps="false"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:id="@+id/sqrt"
-                android:text="@string/sqrt"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/scientificBtnText"
-                android:onClick="onClick"
-                android:textAllCaps="false"/>
-
-
-
-
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/pi"
-                android:id="@+id/pi"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/scientificBtnText"
-                android:onClick="onClick"
-                android:textAllCaps="false"/>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            >
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -310,16 +340,7 @@
                 android:id="@+id/num9"
                 android:onClick="onClick" />
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/divide"
-                android:id="@+id/divide"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/scientificBtnText"
-                android:onClick="onClick" />
+
 
 
         </LinearLayout>
@@ -329,6 +350,18 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/tan"
+                android:id="@+id/tan"
+                android:onClick="onClick"
+                android:background="@null"
+                android:textColor="@color/colorBtnText"
+                android:textSize="@dimen/btnSmallText"
+                android:textAllCaps="false"/>
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -381,6 +414,18 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             >
+            <Button
+                android:id="@+id/log"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:onClick="onClick"
+                android:text="log"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBtnText"
+                android:textSize="@dimen/btnSmallText" />
+
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -494,34 +539,15 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="="
-                android:background="@null"
+                android:background="@drawable/equal_btn_round"
                 android:textColor="@color/colorBtnText"
                 android:textSize="@dimen/scientificBtnText"
                 android:id="@+id/equal"
                 android:onClick="onClick"
                 />
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/openBracket"
-                android:id="@+id/openBracket"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/scientificBtnText"
-                android:onClick="onClick"/>
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="( )"
-                android:id="@+id/openCloseBracket"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/scientificBtnText"
-                android:onClick="onClick"/>
+
 
             <Button
                 android:layout_width="0dp"
