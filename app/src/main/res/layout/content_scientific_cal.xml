@@ -28,9 +28,9 @@
             android:editable="false"
             android:textColor="#FFFFFF"
             android:textSize="25sp"
-            android:layout_centerInParent="true"
             android:background="@null"
             android:textAlignment="textEnd"
+            android:layout_marginTop="20dp"
             android:gravity="end"/>
 
         <EditText
@@ -57,7 +57,7 @@
             android:id="@+id/degMode"
             android:background="@null"
             android:textColor="@color/red_light"
-            android:textSize="@dimen/btnSmallText"
+            android:textSize="18sp"
             android:onClick="onClick"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="|"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="16dp"
             android:textColor="#FFFFFF"
             android:layout_alignParentBottom="true"
             android:layout_toStartOf="@+id/degMode"
@@ -80,8 +80,8 @@
             android:text="@string/mode2"
             android:id="@+id/radMode"
             android:background="@null"
-            android:textColor="@color/colorBtnText"
-            android:textSize="@dimen/btnSmallText"
+            android:textColor="@color/colorBtnText2"
+            android:textSize="18sp"
             android:onClick="onClick"
             android:textAllCaps="false"
             android:layout_alignParentBottom="true"
@@ -94,7 +94,7 @@
         android:layout_height="0dp"
         android:layout_weight="7"
         android:orientation="vertical"
-        android:weightSum="8"
+        android:weightSum="7"
         android:background="@color/colorPrimary"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -112,8 +112,9 @@
                 android:text="@string/clear"
                 android:id="@+id/clear"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/btnSmallText"
+                android:textColor="@color/colorBtnText2"
+                android:textSize="26sp"
+
                 android:onClick="onClick" />
 
             <Button
@@ -123,7 +124,7 @@
                 android:text="@string/backspace"
                 android:id="@+id/backSpace"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText"
                 android:onClick="onClick" />
 
@@ -134,7 +135,7 @@
                 android:text="( )"
                 android:id="@+id/openCloseBracket"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText"
                 android:onClick="onClick"/>
 
@@ -145,7 +146,7 @@
                 android:text="@string/percent"
                 android:id="@+id/percent"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText"
                 android:onClick="onClick"/>
 
@@ -156,7 +157,7 @@
                 android:text="@string/pi"
                 android:id="@+id/pi"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText"
                 android:onClick="onClick"
                 android:textAllCaps="false"/>
@@ -187,7 +188,7 @@
                 android:checked="false"
                 android:textAllCaps="false"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/btnSmallText"
                 android:onClick="onClick" />
 
@@ -199,7 +200,7 @@
                 android:id="@+id/sqrt"
                 android:text="@string/sqrt"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText"
                 android:onClick="onClick"
                 android:textAllCaps="false"/>
@@ -214,7 +215,7 @@
                 android:onClick="onClick"
                 android:text="@string/square"
                 android:textAllCaps="false"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText" />
 
             <Button
@@ -225,7 +226,7 @@
                 android:text="@string/xpown"
                 android:onClick="onClick"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText"
                 android:textAllCaps="false"/>
 
@@ -236,9 +237,14 @@
                 android:text="@string/divide"
                 android:id="@+id/divide"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText"
                 android:onClick="onClick" />
+
+
+
+
+
 
 
 
@@ -261,23 +267,53 @@
                 android:id="@+id/sin"
                 android:onClick="onClick"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/btnSmallText"
                 android:textAllCaps="false"/>
-
-
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="7"
+                android:background="@null"
+                android:textColor="@color/colorBtnText"
+                android:textSize="@dimen/scientificBtnText"
+                android:id="@+id/num7"
+                android:onClick="onClick"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:background="@null"
+                android:textColor="@color/colorBtnText"
+                android:textSize="@dimen/scientificBtnText"
+                android:id="@+id/num8"
+                android:onClick="onClick" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/factorial"
-                android:id="@+id/factorial"
-                android:onClick="onClick"
+                android:text="9"
                 android:background="@null"
                 android:textColor="@color/colorBtnText"
                 android:textSize="@dimen/scientificBtnText"
-                android:textAllCaps="false"/>
+                android:id="@+id/num9"
+                android:onClick="onClick" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="x"
+                android:background="@null"
+                android:textColor="@color/colorBtnText2"
+                android:textSize="@dimen/scientificBtnText"
+                android:id="@+id/multiply"
+                android:onClick="onClick" />
+
+
 
 
 
@@ -303,65 +339,10 @@
                 android:id="@+id/cos"
                 android:onClick="onClick"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/btnSmallText"
                 android:textAllCaps="false"/>
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="7"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/scientificBtnText"
-                android:id="@+id/num7"
-                android:onClick="onClick"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="8"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/scientificBtnText"
-                android:id="@+id/num8"
-                android:onClick="onClick" />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="9"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/scientificBtnText"
-                android:id="@+id/num9"
-                android:onClick="onClick" />
-
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            >
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/tan"
-                android:id="@+id/tan"
-                android:onClick="onClick"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/btnSmallText"
-                android:textAllCaps="false"/>
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -398,12 +379,15 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="x"
+                android:text="-"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText"
-                android:id="@+id/multiply"
+                android:id="@+id/minus"
                 android:onClick="onClick" />
+
+
+
 
 
 
@@ -414,17 +398,18 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             >
+
             <Button
-                android:id="@+id/log"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@null"
+                android:layout_height="wrap_content"
+                android:text="@string/tan"
+                android:id="@+id/tan"
                 android:onClick="onClick"
-                android:text="log"
-                android:textAllCaps="false"
-                android:textColor="@color/colorBtnText"
-                android:textSize="@dimen/btnSmallText" />
+                android:background="@null"
+                android:textColor="@color/colorBtnText2"
+                android:textSize="@dimen/btnSmallText"
+                android:textAllCaps="false"/>
 
             <Button
                 android:layout_width="0dp"
@@ -463,12 +448,15 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="-"
+                android:text="+"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText"
-                android:id="@+id/minus"
+                android:id="@+id/plus"
                 android:onClick="onClick" />
+
+
+
 
 
 
@@ -478,20 +466,30 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-
             >
-
+            <Button
+                android:id="@+id/log"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:onClick="onClick"
+                android:text="log"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBtnText2"
+                android:textSize="@dimen/btnSmallText" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/posneg"
-                android:id="@+id/posneg"
+                android:text="@string/factorial"
+                android:id="@+id/factorial"
+                android:onClick="onClick"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText"
-                android:onClick="onClick" />
+                android:textAllCaps="false"/>
 
             <Button
                 android:layout_width="0dp"
@@ -510,23 +508,25 @@
                 android:layout_height="wrap_content"
                 android:text="."
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText"
                 android:id="@+id/dot"
                 android:onClick="onClick" />
-
-
 
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="+"
+                android:text="@string/posneg"
+                android:id="@+id/posneg"
                 android:background="@null"
-                android:textColor="@color/colorBtnText"
+                android:textColor="@color/colorBtnText2"
                 android:textSize="@dimen/scientificBtnText"
-                android:id="@+id/plus"
                 android:onClick="onClick" />
+
+
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -550,6 +550,7 @@
 
 
             <Button
+                android:visibility="gone"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"

@@ -75,7 +75,7 @@ public class ScientificCalFrag extends Fragment {
 
         dbHelperSci = new DBHelper(getContext());
 
-        eSci2.setText("0");
+        //eSci2.setText("0");
 
         //tags to change the mode from degree to radian and vice versa
         mode.setTag(1);
@@ -85,7 +85,7 @@ public class ScientificCalFrag extends Fragment {
         return v;
     }
 
-    @OnClick({R.id.radMode, R.id.degMode, R.id.separate, R.id.square, R.id.xpowy, R.id.log, R.id.clear, R.id.sin, R.id.cos, R.id.tan, R.id.backSpace, R.id.toggleSci, R.id.factorial, R.id.sqrt, R.id.pi, R.id.num7, R.id.num8, R.id.num9, R.id.divide, R.id.num4, R.id.num5, R.id.num6, R.id.multiply, R.id.num1, R.id.num2, R.id.num3, R.id.minus, R.id.posneg, R.id.num0, R.id.dot, R.id.plus, R.id.equal, R.id.openBracket, R.id.openCloseBracket, R.id.closeBracket, R.id.ll_scientific})
+    @OnClick({R.id.radMode, R.id.degMode, R.id.separate, R.id.square, R.id.xpowy, R.id.log, R.id.clear, R.id.sin, R.id.cos, R.id.tan, R.id.backSpace, R.id.toggleSci, R.id.factorial, R.id.sqrt, R.id.pi, R.id.num7, R.id.num8, R.id.num9, R.id.divide, R.id.num4, R.id.num5, R.id.num6, R.id.multiply, R.id.num1, R.id.num2, R.id.num3, R.id.minus, R.id.posneg, R.id.num0, R.id.dot, R.id.plus, R.id.equal, R.id.openCloseBracket, R.id.closeBracket, R.id.ll_scientific})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.radMode:
@@ -404,13 +404,11 @@ public class ScientificCalFrag extends Fragment {
                 operationClicked("+");
                 break;
             case R.id.equal:
-                /*for more knowledge on DoubleEvaluator and its tutorial go to the below link
-                http://javaluator.sourceforge.net/en/home/*/
                 if (eSci2.length() != 0) {
                     textSci = eSci2.getText().toString();
                     expressionSci = eSci1.getText().toString() + textSci;
                 }
-                eSci1.setText("");
+                eSci1.setText(expressionSci);
                 if (expressionSci.length() == 0)
                     expressionSci = "0.0";
                 try {
@@ -434,9 +432,9 @@ public class ScientificCalFrag extends Fragment {
                 }
                 break;
 
-            case R.id.openBracket:
-                eSci1.setText(eSci1.getText() + "(");
-                break;
+//            case R.id.openBracket:
+//                eSci1.setText(eSci1.getText() + "(");
+//                break;
             case R.id.openCloseBracket:
                 if (eSci2.length() != 0)
                     eSci1.setText(eSci1.getText() + eSci2.getText().toString() + ")");
