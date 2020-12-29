@@ -3,7 +3,6 @@ package anubhav.calculatorapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     View commonLine;
     @BindView(R.id.sciLine)
     View sciLine;
+    @BindView(R.id.unitMode)
+    TextView unitMode;
+    @BindView(R.id.unitLine)
+    View unitLine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +52,15 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    @OnClick({R.id.commonMode, R.id.sciMode, R.id.history})
+    @OnClick({R.id.commonMode, R.id.sciMode, R.id.unitMode, R.id.history})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.commonMode:
                 sciMode.setTextColor(getResources().getColor(R.color.white));
                 sciLine.setVisibility(View.GONE);
+                unitMode.setTextColor(getResources().getColor(R.color.white));
+                unitLine.setVisibility(View.GONE);
+
                 commonMode.setTextColor(getResources().getColor(R.color.red_light));
                 commonLine.setVisibility(View.VISIBLE);
                 setFragment(new CommonCalFrag());
@@ -62,19 +68,31 @@ public class MainActivity extends AppCompatActivity {
             case R.id.sciMode:
                 commonMode.setTextColor(getResources().getColor(R.color.white));
                 commonLine.setVisibility(View.GONE);
+                unitMode.setTextColor(getResources().getColor(R.color.white));
+                unitLine.setVisibility(View.GONE);
+
                 sciMode.setTextColor(getResources().getColor(R.color.red_light));
                 sciLine.setVisibility(View.VISIBLE);
                 setFragment(new ScientificCalFrag());
+                break;
+            case R.id.unitMode:
+                sciMode.setTextColor(getResources().getColor(R.color.white));
+                sciLine.setVisibility(View.GONE);
+                commonMode.setTextColor(getResources().getColor(R.color.white));
+                commonLine.setVisibility(View.GONE);
+
+                unitMode.setTextColor(getResources().getColor(R.color.red_light));
+                unitLine.setVisibility(View.VISIBLE);
+                setFragment(new UnitConverterFrag());
                 break;
             case R.id.history:
                 if (sciLine.getVisibility() == View.VISIBLE) {
                     Intent intent = new Intent(this, History.class);
                     intent.putExtra("calcName", "SCIENTIFIC");
                     startActivity(intent);
-                }
-                else {
-                    Intent i=new Intent(this,History.class);
-                    i.putExtra("calcName","STANDARD");
+                } else {
+                    Intent i = new Intent(this, History.class);
+                    i.putExtra("calcName", "STANDARD");
                     startActivity(i);
                 }
 

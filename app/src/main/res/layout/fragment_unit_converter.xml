@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:background="@color/colorPrimary"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".UnitConverterFrag">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/unit_converter"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/unit_txt_color"
+            android:fontFamily="@font/open_sans"
+            android:layout_marginTop="@dimen/ll_unit_margin_top"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ll_unit_margin_top"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_area"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text="@string/area"
+                    android:textColor="@color/unit_txt_color"
+                    android:textSize="@dimen/unit_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_cooking"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cooking"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_currency"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/currency"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_storage"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Digital Storage"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ll_unit_margin_top"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_energy"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Energy"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_fuel"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fuel Consumption"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_length"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Length/Distance"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_mass"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mass/Weight"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ll_unit_margin_top"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_power"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Power"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_pressure"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pressure"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_speed"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Speed"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_temperature"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Temperature"
+                    android:gravity="center"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ll_unit_margin_top"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_time"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_torque"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Torque"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_volume"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Volume"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="@dimen/unit_text_size"
+                    android:textColor="@color/unit_txt_color"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/unit_img_size"
+                    android:layout_height="@dimen/unit_img_size"
+                    android:src="@drawable/ic_back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/unit_text_margin_top"
+                    android:text="Back"
+                    android:fontFamily="@font/open_sans"
+                    android:textColor="@color/unit_txt_color"
+                    android:textSize="@dimen/unit_text_size" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
+
