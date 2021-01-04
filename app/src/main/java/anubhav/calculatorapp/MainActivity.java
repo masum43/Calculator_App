@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 unitMode.setTextColor(getResources().getColor(R.color.red_light));
                 unitLine.setVisibility(View.VISIBLE);
                 setFragment(new UnitConverterFrag());
+
                 break;
             case R.id.history:
                 if (sciLine.getVisibility() == View.VISIBLE) {

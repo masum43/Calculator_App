@@ -32,6 +32,7 @@
             >
 
             <LinearLayout
+                android:id="@+id/ll_area"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -58,6 +59,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_cooking"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -85,6 +87,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_currency"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -112,6 +115,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_storage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -147,6 +151,7 @@
             >
 
             <LinearLayout
+                android:id="@+id/ll_energy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -173,6 +178,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_fuel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -200,6 +206,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_length"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -227,6 +234,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_mass"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -262,6 +270,7 @@
             >
 
             <LinearLayout
+                android:id="@+id/ll_power"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -288,6 +297,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_pressure"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -314,6 +324,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_speed"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -340,6 +351,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_temperature"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -371,9 +383,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/ll_unit_margin_top"
+            android:weightSum="4"
             >
 
             <LinearLayout
+                android:id="@+id/ll_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -400,6 +414,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_torque"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -426,6 +441,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_volume"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -451,28 +467,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="@dimen/unit_img_size"
-                    android:layout_height="@dimen/unit_img_size"
-                    android:src="@drawable/ic_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/unit_text_margin_top"
-                    android:text="Back"
-                    android:fontFamily="@font/open_sans"
-                    android:textColor="@color/unit_txt_color"
-                    android:textSize="@dimen/unit_text_size" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

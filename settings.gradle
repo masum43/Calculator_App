@@ -1,1 +1,3 @@
+include ':v6000'
+include ':unit'
 include ':app'
