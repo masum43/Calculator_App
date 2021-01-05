@@ -1,4 +1,4 @@
-package anubhav.calculatorapp;
+package anubhav.calculatorapp.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import anubhav.calculatorapp.R;
 
 public class HistoryLvAdapter extends ArrayAdapter<String> {
 

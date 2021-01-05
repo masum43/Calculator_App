@@ -1,4 +1,4 @@
-package anubhav.calculatorapp;
+package anubhav.calculatorapp.common;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import androidx.fragment.app.Fragment;
 
 import com.fathzer.soft.javaluator.DoubleEvaluator;
 
+import anubhav.calculatorapp.history.HistoryActivity;
+import anubhav.calculatorapp.R;
+import anubhav.calculatorapp.db.DBHelper;
+import anubhav.calculatorapp.scientific.ExtendedDoubleEvaluator;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -231,7 +235,7 @@ public class CommonCalFrag extends Fragment {
                 }
                 break;
             case R.id.history:
-                Intent i=new Intent(getContext(),History.class);
+                Intent i=new Intent(getContext(), HistoryActivity.class);
                 i.putExtra("calcName","STANDARD");
                 startActivity(i);
                 break;

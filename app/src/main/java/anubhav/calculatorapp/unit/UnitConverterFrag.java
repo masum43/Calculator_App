@@ -1,4 +1,4 @@
-package anubhav.calculatorapp;
+package anubhav.calculatorapp.unit;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import com.physphil.android.unitconverterultimate.models.Conversion;
 
 import java.util.HashMap;
 
+import anubhav.calculatorapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

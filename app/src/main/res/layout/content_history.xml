@@ -10,7 +10,7 @@
     android:background="@color/colorPrimary"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="anubhav.calculatorapp.History"
+    tools:context="anubhav.calculatorapp.history.HistoryActivity"
     tools:showIn="@layout/activity_history">
 
     <Button

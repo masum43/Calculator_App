@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:background="@color/colorPrimaryDark"
-    tools:context="anubhav.calculatorapp.MainActivity">
+    tools:context="anubhav.calculatorapp.main.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

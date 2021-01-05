@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,33 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".StandardCal"
-            />
-        <activity
-            android:name=".ScientificCal"
-          />
-        <activity
-            android:name=".UnitCoverter"
-            android:label="@string/title_activity_unit_coverter"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".UnitArea"
-            android:label="@string/title_activity_unit_area"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".UnitLength"
-            android:label="@string/title_activity_unit_length"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".UnitWeight"
-            android:label="@string/title_activity_unit_weight"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".UnitTemperature"
-            android:label="@string/title_activity_unit_temperature"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".History"
+            android:name=".history.HistoryActivity"
           />
 
         <meta-data

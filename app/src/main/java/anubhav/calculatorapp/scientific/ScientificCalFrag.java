@@ -1,4 +1,4 @@
-package anubhav.calculatorapp;
+package anubhav.calculatorapp.scientific;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
+import anubhav.calculatorapp.R;
+import anubhav.calculatorapp.db.DBHelper;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
