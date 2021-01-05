@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import anubhav.calculatorapp.R;
 import anubhav.calculatorapp.db.DBHelper;
+import anubhav.calculatorapp.pref.OpenCloseBracketPref;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -23,6 +24,8 @@ public class ScientificCalFrag extends Fragment {
     Button degMode;
     @BindView(R.id.radMode)
     Button radMode;
+    private String text,expression;
+    double result;
 
 
     public ScientificCalFrag() {
@@ -87,7 +90,7 @@ public class ScientificCalFrag extends Fragment {
         return v;
     }
 
-    @OnClick({R.id.radMode, R.id.degMode, R.id.separate, R.id.percent, R.id.square, R.id.xpowy, R.id.log, R.id.clear, R.id.sin, R.id.cos, R.id.tan, R.id.backSpace, R.id.toggleSci, R.id.factorial, R.id.sqrt, R.id.pi, R.id.num7, R.id.num8, R.id.num9, R.id.divide, R.id.num4, R.id.num5, R.id.num6, R.id.multiply, R.id.num1, R.id.num2, R.id.num3, R.id.minus, R.id.posneg, R.id.num0, R.id.dot, R.id.plus, R.id.equal, R.id.openCloseBracket, R.id.closeBracket, R.id.ll_scientific})
+    @OnClick({R.id.radMode, R.id.degMode, R.id.separate, R.id.openCloseBracket, R.id.percent, R.id.square, R.id.xpowy, R.id.log, R.id.clear, R.id.sin, R.id.cos, R.id.tan, R.id.backSpace, R.id.toggleSci, R.id.factorial, R.id.sqrt, R.id.pi, R.id.num7, R.id.num8, R.id.num9, R.id.divide, R.id.num4, R.id.num5, R.id.num6, R.id.multiply, R.id.num1, R.id.num2, R.id.num3, R.id.minus, R.id.posneg, R.id.num0, R.id.dot, R.id.plus, R.id.equal, R.id.closeBracket, R.id.ll_scientific})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.radMode:
@@ -105,8 +108,41 @@ public class ScientificCalFrag extends Fragment {
                 break;
 
             case R.id.percent:
-                percentClickListener();
+                if(downSciEt.length()!=0)
+                {
+                    text= downSciEt.getText().toString();
+                    expression= upperSciEt.getText().toString()+text;
+                    result = Double.parseDouble(text)/100;
+                }
+
+                try
+                {
+                    upperSciEt.setText(expression);
+                    downSciEt.setText(result+"");
+                    if(expression.length()==0)
+                        expression="0.0";
+                }
+                catch (Exception e)
+                {
+                    downSciEt.setText("Invalid Expression");
+                    upperSciEt.setText("");
+                    expression="";
+                    e.printStackTrace();
+                }
                 break;
+
+            case R.id.openCloseBracket:
+                if (OpenCloseBracketPref.getBracketMode(getContext()) == 0) { //0 means open bracket is not used
+                    downSciEt.setText("("+downSciEt.getText().toString());
+                    OpenCloseBracketPref.putBracketMode(getContext(),1); //1 means open bracket is used, now use close bracket
+                }
+                else {
+                    downSciEt.setText(downSciEt.getText().toString()+")");
+                    OpenCloseBracketPref.putBracketMode(getContext(),0);
+                }
+                break;
+
+
 
             case R.id.square:
                 if (downSciEt.length() != 0) {
@@ -423,11 +459,11 @@ public class ScientificCalFrag extends Fragment {
                     //insert expression and result in sqlite database if expression is valid and not 0.0
                     if (String.valueOf(resultSci).equals("6.123233995736766E-17")) {
                         resultSci = 0.0;
-                        downSciEt.setText(resultSci + "");
+                        downSciEt.setText(String.format("%.5f", resultSci));
                     } else if (String.valueOf(resultSci).equals("1.633123935319537E16"))
                         downSciEt.setText("infinity");
                     else
-                        downSciEt.setText(resultSci + "");
+                        downSciEt.setText(String.format("%.5f", resultSci));
                     if (!expressionSci.equals("0.0"))
                         dbHelperSci.insert("SCIENTIFIC", expressionSci + " = " + resultSci);
                 } catch (Exception e) {
@@ -441,12 +477,7 @@ public class ScientificCalFrag extends Fragment {
 //            case R.id.openBracket:
 //                eSci1.setText(eSci1.getText() + "(");
 //                break;
-            case R.id.openCloseBracket:
-                if (downSciEt.length() != 0)
-                    upperSciEt.setText(upperSciEt.getText() + downSciEt.getText().toString() + ")");
-                else
-                    upperSciEt.setText(upperSciEt.getText() + ")");
-                break;
+
             case R.id.closeBracket:
                 break;
         }
@@ -467,30 +498,4 @@ public class ScientificCalFrag extends Fragment {
         }
     }
 
-    private void percentClickListener() {
-        String text;
-        String expression = "null";
-        double result = 0;
-        if(upperSciEt.length()!=0)
-        {
-            text= downSciEt.getText().toString();
-            expression= upperSciEt.getText().toString()+text;
-            result = Double.parseDouble(text)/100;
-        }
-
-        try
-        {
-            upperSciEt.setText(expression);
-            upperSciEt.setText(result+"");
-            if(expression.length()==0)
-                expression="0.0";
-        }
-        catch (Exception e)
-        {
-            downSciEt.setText("Invalid Expression");
-            upperSciEt.setText("");
-            expression="";
-            e.printStackTrace();
-        }
-    }
 }

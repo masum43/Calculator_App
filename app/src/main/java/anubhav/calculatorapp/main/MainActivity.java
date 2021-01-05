@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 sciLine.setVisibility(View.GONE);
                 unitMode.setTextColor(getResources().getColor(R.color.white));
                 unitLine.setVisibility(View.GONE);
+                history.setVisibility(View.VISIBLE);
 
                 commonMode.setTextColor(getResources().getColor(R.color.red_light));
                 commonLine.setVisibility(View.VISIBLE);
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 commonLine.setVisibility(View.GONE);
                 unitMode.setTextColor(getResources().getColor(R.color.white));
                 unitLine.setVisibility(View.GONE);
+                history.setVisibility(View.VISIBLE);
 
                 sciMode.setTextColor(getResources().getColor(R.color.red_light));
                 sciLine.setVisibility(View.VISIBLE);
@@ -85,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 sciLine.setVisibility(View.GONE);
                 commonMode.setTextColor(getResources().getColor(R.color.white));
                 commonLine.setVisibility(View.GONE);
+                history.setVisibility(View.GONE);
 
                 unitMode.setTextColor(getResources().getColor(R.color.red_light));
                 unitLine.setVisibility(View.VISIBLE);

@@ -7,7 +7,7 @@
     <dimen name="scientificBtnText">24sp</dimen>
     <dimen name="btnSmallText">20sp</dimen>
     <dimen name="unit_img_size">35dp</dimen>
-    <dimen name="unit_text_size">15sp</dimen>
+    <dimen name="unit_text_size">12sp</dimen>
     <dimen name="unit_text_margin_top">5dp</dimen>
     <dimen name="ll_unit_margin_top">25dp</dimen>
 </resources>
