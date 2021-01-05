@@ -16,9 +16,9 @@ public class History extends AppCompatActivity {
     private ListView lv;
     private DBHelper dbHelper;
     private ArrayList<String> list;
-    private ArrayAdapter<String> adapter;
+    private HistoryLvAdapter adapter;
     private String calcName="";
-    private String []EmptyList={"There is  no history yet"};
+    private ArrayList<String> EmptyList=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +32,15 @@ public class History extends AppCompatActivity {
         calcName=getIntent().getStringExtra("calcName");
         list=dbHelper.showHistory(calcName);
         if(!list.isEmpty())
-            adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
-        else
-            adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,EmptyList);
+            adapter=new HistoryLvAdapter(this, R.layout.simple_list_item_1, list);
         lv.setAdapter(adapter);
     }
 
     public void onClick(View v)
     {
+        EmptyList.add("There is  no history yet");
         dbHelper.deleteRecords(calcName);
-        adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,EmptyList);
+        adapter=new HistoryLvAdapter(this, R.layout.simple_list_item_1, EmptyList);
         lv.setAdapter(adapter);
     }
 
