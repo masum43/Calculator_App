@@ -223,7 +223,7 @@ public class CommonCalFrag extends Fragment {
             //insert expression and result in sqlite database if expression is valid and not 0.0
             if(!expression.equals("0.0"))
                 dbHelper.insert("STANDARD",expression+" = "+result);
-            downEt.setText(result+"");
+            downEt.setText(String.format("%.5f", result));
         }
         catch (Exception e)
         {
