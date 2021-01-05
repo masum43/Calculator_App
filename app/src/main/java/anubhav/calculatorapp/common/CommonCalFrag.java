@@ -14,6 +14,7 @@ import com.fathzer.soft.javaluator.DoubleEvaluator;
 import anubhav.calculatorapp.history.HistoryActivity;
 import anubhav.calculatorapp.R;
 import anubhav.calculatorapp.db.DBHelper;
+import anubhav.calculatorapp.pref.OpenCloseBracketPref;
 import anubhav.calculatorapp.scientific.ExtendedDoubleEvaluator;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -48,7 +49,7 @@ public class CommonCalFrag extends Fragment {
     }
 
     View v;
-    private EditText e1, e2;
+    private EditText upperEt, downEt;
     private int count = 0;
     private String expression = "";
     private String text = "";
@@ -62,176 +63,114 @@ public class CommonCalFrag extends Fragment {
         v = inflater.inflate(R.layout.fragment_common_cal, container, false);
         ButterKnife.bind(this, v);
 
-        e1 = (EditText) v.findViewById(R.id.editText1);
-        e2 = (EditText) v.findViewById(R.id.editText2);
+        upperEt = (EditText) v.findViewById(R.id.editText1);
+        downEt = (EditText) v.findViewById(R.id.editText2);
         dbHelper = new DBHelper(getContext());
 
         return v;
     }
 
-    @OnClick({R.id.clear, R.id.backSpace, R.id.openBracket, R.id.divide, R.id.ll1, R.id.num7, R.id.num8, R.id.num9, R.id.multiply, R.id.num4, R.id.num5, R.id.num6, R.id.minus, R.id.num1, R.id.num2, R.id.num3, R.id.plus, R.id.openCloseBracket, R.id.num0, R.id.dot, R.id.equal, R.id.square, R.id.posneg, R.id.history, R.id.ll_common})
+    @OnClick({R.id.clear, R.id.backSpace, R.id.percent, R.id.divide, R.id.ll1, R.id.num7, R.id.num8, R.id.num9, R.id.multiply, R.id.num4, R.id.num5, R.id.num6, R.id.minus, R.id.num1, R.id.num2, R.id.num3, R.id.plus, R.id.openCloseBracket, R.id.num0, R.id.dot, R.id.equal, R.id.square, R.id.posneg, R.id.history, R.id.ll_common})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.clear:
-                e1.setText("");
-                e2.setText("");
+                upperEt.setText("");
+                downEt.setText("");
                 count=0;
                 expression="";
                 break;
-            case R.id.backSpace:
-                text=e2.getText().toString();
-                if(text.length()>0)
-                {
-                    if(text.endsWith("."))
-                    {
-                        count=0;
-                    }
-                    String newText=text.substring(0,text.length()-1);
-                    //to delete the data contained in the brackets at once
-                    if(text.endsWith(")"))
-                    {
-                        char []a=text.toCharArray();
-                        int pos=a.length-2;
-                        int counter=1;
-                        //to find the opening bracket position
-                        for(int i=a.length-2;i>=0;i--)
-                        {
-                            if(a[i]==')')
-                            {
-                                counter++;
-                            }
-                            else if(a[i]=='(')
-                            {
-                                counter--;
-                            }
-                            //if decimal is deleted b/w brackets then count should be zero
-                            else if(a[i]=='.')
-                            {
-                                count=0;
-                            }
-                            //if opening bracket pair for the last bracket is found
-                            if(counter==0)
-                            {
-                                pos=i;
-                                break;
-                            }
-                        }
-                        newText=text.substring(0,pos);
-                    }
-                    //if e2 edit text contains only - sign or sqrt at last then clear the edit text e2
-                    if(newText.equals("-")||newText.endsWith("sqrt"))
-                    {
-                        newText="";
-                    }
-                    //if pow sign is left at the last
-                    else if(newText.endsWith("^"))
-                        newText=newText.substring(0,newText.length()-1);
 
-                    e2.setText(newText);
+            case R.id.backSpace:
+                backSpaceTask();
+                break;
+
+            case R.id.percent:
+                percentClickListener();
+                break;
+
+            case R.id.openCloseBracket:
+                if (OpenCloseBracketPref.getBracketMode(getContext()) == 0) { //0 means open bracket is not used
+                    downEt.setText("("+downEt.getText().toString());
+                    OpenCloseBracketPref.putBracketMode(getContext(),1); //1 means open bracket is used, now use close bracket
+                }
+                else {
+                    downEt.setText(downEt.getText().toString()+")");
+                    OpenCloseBracketPref.putBracketMode(getContext(),0);
                 }
                 break;
 
-            case R.id.openBracket:
-                e1.setText(e1.getText()+"(");
-                break;
             case R.id.divide:
                 operationClicked("/");
                 break;
+
             case R.id.ll1:
                 break;
+
             case R.id.num7:
-                e2.setText(e2.getText()+"7");
+                downEt.setText(downEt.getText()+"7");
                 break;
             case R.id.num8:
-                e2.setText(e2.getText()+"8");
+                downEt.setText(downEt.getText()+"8");
                 break;
             case R.id.num9:
-                e2.setText(e2.getText()+"9");
+                downEt.setText(downEt.getText()+"9");
                 break;
             case R.id.multiply:
                 operationClicked("*");
                 break;
             case R.id.num4:
-                e2.setText(e2.getText()+"4");
+                downEt.setText(downEt.getText()+"4");
                 break;
             case R.id.num5:
-                e2.setText(e2.getText()+"5");
+                downEt.setText(downEt.getText()+"5");
                 break;
             case R.id.num6:
-                e2.setText(e2.getText()+"6");
+                downEt.setText(downEt.getText()+"6");
                 break;
             case R.id.minus:
                 operationClicked("-");
                 break;
             case R.id.num1:
-                e2.setText(e2.getText()+"1");
+                downEt.setText(downEt.getText()+"1");
                 break;
             case R.id.num2:
-                e2.setText(e2.getText()+"2");
+                downEt.setText(downEt.getText()+"2");
                 break;
             case R.id.num3:
-                e2.setText(e2.getText()+"3");
+                downEt.setText(downEt.getText()+"3");
                 break;
             case R.id.plus:
                 operationClicked("+");
                 break;
-            case R.id.openCloseBracket:
-                e1.setText(e1.getText()+")");
-                break;
             case R.id.num0:
-                e2.setText(e2.getText()+"0");
+                downEt.setText(downEt.getText()+"0");
                 break;
             case R.id.dot:
-                if(count==0 && e2.length()!=0)
+                if(count==0 && downEt.length()!=0)
                 {
-                    e2.setText(e2.getText()+".");
+                    downEt.setText(downEt.getText()+".");
                     count++;
                 }
                 break;
             case R.id.equal:
-
-                if(e2.length()!=0)
-                {
-                    text=e2.getText().toString();
-                    expression=e1.getText().toString()+text;
-                }
-                e1.setText(expression);
-                if(expression.length()==0)
-                    expression="0.0";
-                DoubleEvaluator evaluator = new DoubleEvaluator();
-                try
-                {
-                    //evaluate the expression
-                    result=new ExtendedDoubleEvaluator().evaluate(expression);
-                    //insert expression and result in sqlite database if expression is valid and not 0.0
-                    if(!expression.equals("0.0"))
-                        dbHelper.insert("STANDARD",expression+" = "+result);
-                    e2.setText(result+"");
-                }
-                catch (Exception e)
-                {
-                    e2.setText("Invalid Expression");
-                    e1.setText("");
-                    expression="";
-                    e.printStackTrace();
-                }
+                equalClickListener();
                 break;
             case R.id.square:
-                if(e2.length()!=0)
+                if(downEt.length()!=0)
                 {
-                    text=e2.getText().toString();
-                    e2.setText("("+text+")^2");
+                    text= downEt.getText().toString();
+                    downEt.setText("("+text+")^2");
                 }
                 break;
             case R.id.posneg:
-                if(e2.length()!=0)
+                if(downEt.length()!=0)
                 {
-                    String s=e2.getText().toString();
+                    String s= downEt.getText().toString();
                     char arr[]=s.toCharArray();
                     if(arr[0]=='-')
-                        e2.setText(s.substring(1,s.length()));
+                        downEt.setText(s.substring(1,s.length()));
                     else
-                        e2.setText("-"+s);
+                        downEt.setText("-"+s);
                 }
                 break;
             case R.id.history:
@@ -244,22 +183,126 @@ public class CommonCalFrag extends Fragment {
         }
     }
 
+    private void percentClickListener() {
+        if(downEt.length()!=0)
+        {
+            text= downEt.getText().toString();
+            expression= upperEt.getText().toString()+text;
+            result = Double.parseDouble(text)/100;
+        }
+
+        try
+        {
+            upperEt.setText(expression);
+            downEt.setText(result+"");
+            if(expression.length()==0)
+                expression="0.0";
+        }
+        catch (Exception e)
+        {
+            downEt.setText("Invalid Expression");
+            upperEt.setText("");
+            expression="";
+            e.printStackTrace();
+        }
+    }
+
+    private void equalClickListener() {
+        if(downEt.length()!=0)
+        {
+            text= downEt.getText().toString();
+            expression= upperEt.getText().toString()+text;
+        }
+        upperEt.setText(expression);
+        if(expression.length()==0)
+            expression="0.0";
+        try
+        {
+            //evaluate the expression
+            result=new ExtendedDoubleEvaluator().evaluate(expression);
+            //insert expression and result in sqlite database if expression is valid and not 0.0
+            if(!expression.equals("0.0"))
+                dbHelper.insert("STANDARD",expression+" = "+result);
+            downEt.setText(result+"");
+        }
+        catch (Exception e)
+        {
+            downEt.setText("Invalid Expression");
+            upperEt.setText("");
+            expression="";
+            e.printStackTrace();
+        }
+    }
+
+    private void backSpaceTask() {
+        text= downEt.getText().toString();
+        if(text.length()>0)
+        {
+            if(text.endsWith("."))
+            {
+                count=0;
+            }
+            String newText=text.substring(0,text.length()-1);
+            //to delete the data contained in the brackets at once
+            if(text.endsWith(")"))
+            {
+                char []a=text.toCharArray();
+                int pos=a.length-2;
+                int counter=1;
+                //to find the opening bracket position
+                for(int i=a.length-2;i>=0;i--)
+                {
+                    if(a[i]==')')
+                    {
+                        counter++;
+                    }
+                    else if(a[i]=='(')
+                    {
+                        counter--;
+                    }
+                    //if decimal is deleted b/w brackets then count should be zero
+                    else if(a[i]=='.')
+                    {
+                        count=0;
+                    }
+                    //if opening bracket pair for the last bracket is found
+                    if(counter==0)
+                    {
+                        pos=i;
+                        break;
+                    }
+                }
+                newText=text.substring(0,pos);
+            }
+            //if e2 edit text contains only - sign or sqrt at last then clear the edit text e2
+            if(newText.equals("-")||newText.endsWith("sqrt"))
+            {
+                newText="";
+            }
+            //if pow sign is left at the last
+            else if(newText.endsWith("^"))
+                newText=newText.substring(0,newText.length()-1);
+
+            downEt.setText(newText);
+        }
+    }
+
     private void operationClicked(String op)
     {
-        if(e2.length()!=0)
+        if(downEt.length()!=0)
         {
-            String text=e2.getText().toString();
-            e1.setText(e1.getText() + text+op);
-            e2.setText("");
+            String text= downEt.getText().toString();
+            upperEt.setText(upperEt.getText() + text+op);
+            downEt.setText("");
             count=0;
         }
         else
         {
-            String text=e1.getText().toString();
+            String text= upperEt.getText().toString();
             if(text.length()>0)
             {
                 String newText=text.substring(0,text.length()-1)+op;
-                e1.setText(newText);
+                upperEt.setText(newText);
             }
         }
     }
