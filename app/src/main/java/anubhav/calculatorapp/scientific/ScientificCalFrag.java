@@ -44,7 +44,7 @@ public class ScientificCalFrag extends Fragment {
     }
 
     View v;
-    private EditText eSci1, eSci2;
+    private EditText upperSciEt, downSciEt;
     private int countSci = 0;
     private String expressionSci = "";
     private String textSci = "";
@@ -62,8 +62,8 @@ public class ScientificCalFrag extends Fragment {
 
         ButterKnife.bind(this, v);
 
-        eSci1 = (EditText) v.findViewById(R.id.editText);
-        eSci2 = (EditText) v.findViewById(R.id.editText2);
+        upperSciEt = (EditText) v.findViewById(R.id.editText);
+        downSciEt = (EditText) v.findViewById(R.id.editText2);
         mode = (Button) v.findViewById(R.id.degMode);
         toggle = (Button) v.findViewById(R.id.toggleSci);
         square = (Button) v.findViewById(R.id.square);
@@ -87,7 +87,7 @@ public class ScientificCalFrag extends Fragment {
         return v;
     }
 
-    @OnClick({R.id.radMode, R.id.degMode, R.id.separate, R.id.square, R.id.xpowy, R.id.log, R.id.clear, R.id.sin, R.id.cos, R.id.tan, R.id.backSpace, R.id.toggleSci, R.id.factorial, R.id.sqrt, R.id.pi, R.id.num7, R.id.num8, R.id.num9, R.id.divide, R.id.num4, R.id.num5, R.id.num6, R.id.multiply, R.id.num1, R.id.num2, R.id.num3, R.id.minus, R.id.posneg, R.id.num0, R.id.dot, R.id.plus, R.id.equal, R.id.openCloseBracket, R.id.closeBracket, R.id.ll_scientific})
+    @OnClick({R.id.radMode, R.id.degMode, R.id.separate, R.id.percent, R.id.square, R.id.xpowy, R.id.log, R.id.clear, R.id.sin, R.id.cos, R.id.tan, R.id.backSpace, R.id.toggleSci, R.id.factorial, R.id.sqrt, R.id.pi, R.id.num7, R.id.num8, R.id.num9, R.id.divide, R.id.num4, R.id.num5, R.id.num6, R.id.multiply, R.id.num1, R.id.num2, R.id.num3, R.id.minus, R.id.posneg, R.id.num0, R.id.dot, R.id.plus, R.id.equal, R.id.openCloseBracket, R.id.closeBracket, R.id.ll_scientific})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.radMode:
@@ -104,114 +104,118 @@ public class ScientificCalFrag extends Fragment {
                 degMode.setTextColor(getResources().getColor(R.color.red_light));
                 break;
 
+            case R.id.percent:
+                percentClickListener();
+                break;
+
             case R.id.square:
-                if (eSci2.length() != 0) {
-                    textSci = eSci2.getText().toString();
+                if (downSciEt.length() != 0) {
+                    textSci = downSciEt.getText().toString();
                     if (toggleModeSci == 2)
-                        eSci2.setText("(" + textSci + ")^3");
+                        downSciEt.setText("(" + textSci + ")^3");
                     else
-                        eSci2.setText("(" + textSci + ")^2");
+                        downSciEt.setText("(" + textSci + ")^2");
                 }
                 break;
 
             case R.id.xpowy:
-                if (eSci2.length() != 0) {
-                    textSci = eSci2.getText().toString();
+                if (downSciEt.length() != 0) {
+                    textSci = downSciEt.getText().toString();
                     if (toggleModeSci == 1)
-                        eSci2.setText("(" + textSci + ")^");
+                        downSciEt.setText("(" + textSci + ")^");
                     else if (toggleModeSci == 2)
-                        eSci2.setText("10^(" + textSci + ")");
+                        downSciEt.setText("10^(" + textSci + ")");
                     else
-                        eSci2.setText("e^(" + textSci + ")");
+                        downSciEt.setText("e^(" + textSci + ")");
                 }
                 break;
 
             case R.id.log:
-                if (eSci2.length() != 0) {
-                    textSci = eSci2.getText().toString();
+                if (downSciEt.length() != 0) {
+                    textSci = downSciEt.getText().toString();
                     if (toggleModeSci == 2)
-                        eSci2.setText("ln(" + textSci + ")");
+                        downSciEt.setText("ln(" + textSci + ")");
                     else
-                        eSci2.setText("log(" + textSci + ")");
+                        downSciEt.setText("log(" + textSci + ")");
                 }
                 break;
 
             case R.id.clear:
-                eSci1.setText("");
-                eSci2.setText("");
+                upperSciEt.setText("");
+                downSciEt.setText("");
                 countSci = 0;
                 expressionSci = "";
                 break;
 
             case R.id.sin:
-                if (eSci2.length() != 0) {
-                    textSci = eSci2.getText().toString();
+                if (downSciEt.length() != 0) {
+                    textSci = downSciEt.getText().toString();
                     if (angleMode == 1) {
                         double angle = Math.toRadians(new ExtendedDoubleEvaluator().evaluate(textSci));
                         if (toggleModeSci == 1)
-                            eSci2.setText("sin(" + angle + ")");
+                            downSciEt.setText("sin(" + angle + ")");
                         else if (toggleModeSci == 2)
-                            eSci2.setText("asind(" + textSci + ")");
+                            downSciEt.setText("asind(" + textSci + ")");
                         else
-                            eSci2.setText("sinh(" + textSci + ")");
+                            downSciEt.setText("sinh(" + textSci + ")");
                     } else {
                         if (toggleModeSci == 1)
-                            eSci2.setText("sin(" + textSci + ")");
+                            downSciEt.setText("sin(" + textSci + ")");
                         else if (toggleModeSci == 2)
-                            eSci2.setText("asin(" + textSci + ")");
+                            downSciEt.setText("asin(" + textSci + ")");
                         else
-                            eSci2.setText("sinh(" + textSci + ")");
+                            downSciEt.setText("sinh(" + textSci + ")");
                     }
                 }
                 break;
 
             case R.id.cos:
-                if (eSci2.length() != 0) {
-                    textSci = eSci2.getText().toString();
+                if (downSciEt.length() != 0) {
+                    textSci = downSciEt.getText().toString();
                     if (angleMode == 1) {
                         double angle = Math.toRadians(new ExtendedDoubleEvaluator().evaluate(textSci));
                         if (toggleModeSci == 1)
-                            eSci2.setText("cos(" + angle + ")");
+                            downSciEt.setText("cos(" + angle + ")");
                         else if (toggleModeSci == 2)
-                            eSci2.setText("acosd(" + textSci + ")");
+                            downSciEt.setText("acosd(" + textSci + ")");
                         else
-                            eSci2.setText("cosh(" + textSci + ")");
+                            downSciEt.setText("cosh(" + textSci + ")");
                     } else {
                         if (toggleModeSci == 1)
-                            eSci2.setText("cos(" + textSci + ")");
+                            downSciEt.setText("cos(" + textSci + ")");
                         else if (toggleModeSci == 2)
-                            eSci2.setText("acos(" + textSci + ")");
+                            downSciEt.setText("acos(" + textSci + ")");
                         else
-                            eSci2.setText("cosh(" + textSci + ")");
+                            downSciEt.setText("cosh(" + textSci + ")");
                     }
                 }
                 break;
 
             case R.id.tan:
-                if (eSci2.length() != 0) {
-                    textSci = eSci2.getText().toString();
+                if (downSciEt.length() != 0) {
+                    textSci = downSciEt.getText().toString();
                     if (angleMode == 1) {
                         double angle = Math.toRadians(new ExtendedDoubleEvaluator().evaluate(textSci));
                         if (toggleModeSci == 1)
-                            eSci2.setText("tan(" + angle + ")");
+                            downSciEt.setText("tan(" + angle + ")");
                         else if (toggleModeSci == 2)
-                            eSci2.setText("atand(" + textSci + ")");
+                            downSciEt.setText("atand(" + textSci + ")");
                         else
-                            eSci2.setText("tanh(" + textSci + ")");
+                            downSciEt.setText("tanh(" + textSci + ")");
                     } else {
                         if (toggleModeSci == 1)
-                            eSci2.setText("tan(" + textSci + ")");
+                            downSciEt.setText("tan(" + textSci + ")");
                         else if (toggleModeSci == 2)
-                            eSci2.setText("atan(" + textSci + ")");
+                            downSciEt.setText("atan(" + textSci + ")");
                         else
-                            eSci2.setText("tanh(" + textSci + ")");
+                            downSciEt.setText("tanh(" + textSci + ")");
                     }
                 }
                 break;
 
 
             case R.id.backSpace:
-                textSci = eSci2.getText().toString();
+                textSci = downSciEt.getText().toString();
                 if (textSci.length() > 0) {
                     if (textSci.endsWith(".")) {
                         countSci = 0;
@@ -255,7 +259,7 @@ public class ScientificCalFrag extends Fragment {
                         newText = newText.substring(0, newText.length() - 1);
                     else if (newText.endsWith("pi") || newText.endsWith("e^"))
                         newText = newText.substring(0, newText.length() - 2);
-                    eSci2.setText(newText);
+                    downSciEt.setText(newText);
                 }
                 break;
 
@@ -295,11 +299,11 @@ public class ScientificCalFrag extends Fragment {
                 break;
 
             case R.id.factorial:
-                if (eSci2.length() != 0) {
-                    textSci = eSci2.getText().toString();
+                if (downSciEt.length() != 0) {
+                    textSci = downSciEt.getText().toString();
                     if (toggleModeSci == 2) {
-                        eSci1.setText("(" + textSci + ")%");
-                        eSci2.setText("");
+                        upperSciEt.setText("(" + textSci + ")%");
+                        downSciEt.setText("");
                     } else {
                         String res = "";
                         try {
@@ -318,12 +322,12 @@ public class ScientificCalFrag extends Fragment {
                                     res += arr[i];
                                 }
                             }
-                            eSci2.setText(res);
+                            downSciEt.setText(res);
                         } catch (Exception e) {
                             if (e.toString().contains("ArrayIndexOutOfBoundsException")) {
-                                eSci2.setText("Result too big!");
+                                downSciEt.setText("Result too big!");
                             } else
-                                eSci2.setText("Invalid!!");
+                                downSciEt.setText("Invalid!!");
                             e.printStackTrace();
                         }
                     }
@@ -331,74 +335,74 @@ public class ScientificCalFrag extends Fragment {
                 break;
 
             case R.id.sqrt:
-                if (eSci2.length() != 0) {
-                    textSci = eSci2.getText().toString();
+                if (downSciEt.length() != 0) {
+                    textSci = downSciEt.getText().toString();
                     toggleModeSci = (int) toggle.getTag();
                     if (toggleModeSci == 1)
-                        eSci2.setText("sqrt(" + textSci + ")");
+                        downSciEt.setText("sqrt(" + textSci + ")");
                     else if (toggleModeSci == 2)
-                        eSci2.setText("cbrt(" + textSci + ")");
+                        downSciEt.setText("cbrt(" + textSci + ")");
                     else
-                        eSci2.setText("1/(" + textSci + ")");
+                        downSciEt.setText("1/(" + textSci + ")");
                 }
                 break;
 
 
             case R.id.pi:
-                eSci2.setText(eSci2.getText() + "pi");
+                downSciEt.setText(downSciEt.getText() + "pi");
                 break;
             case R.id.num7:
-                eSci2.setText(eSci2.getText() + "7");
+                downSciEt.setText(downSciEt.getText() + "7");
                 break;
             case R.id.num8:
-                eSci2.setText(eSci2.getText() + "8");
+                downSciEt.setText(downSciEt.getText() + "8");
                 break;
             case R.id.num9:
-                eSci2.setText(eSci2.getText() + "9");
+                downSciEt.setText(downSciEt.getText() + "9");
                 break;
             case R.id.divide:
                 operationClicked("/");
                 break;
             case R.id.num4:
-                eSci2.setText(eSci2.getText() + "4");
+                downSciEt.setText(downSciEt.getText() + "4");
                 break;
             case R.id.num5:
-                eSci2.setText(eSci2.getText() + "5");
+                downSciEt.setText(downSciEt.getText() + "5");
                 break;
             case R.id.num6:
-                eSci2.setText(eSci2.getText() + "6");
+                downSciEt.setText(downSciEt.getText() + "6");
                 break;
             case R.id.multiply:
                 operationClicked("*");
                 break;
             case R.id.num1:
-                eSci2.setText(eSci2.getText() + "1");
+                downSciEt.setText(downSciEt.getText() + "1");
                 break;
             case R.id.num2:
-                eSci2.setText(eSci2.getText() + "2");
+                downSciEt.setText(downSciEt.getText() + "2");
                 break;
             case R.id.num3:
-                eSci2.setText(eSci2.getText() + "3");
+                downSciEt.setText(downSciEt.getText() + "3");
                 break;
             case R.id.minus:
                 operationClicked("-");
                 break;
             case R.id.posneg:
-                if (eSci2.length() != 0) {
-                    String s = eSci2.getText().toString();
+                if (downSciEt.length() != 0) {
+                    String s = downSciEt.getText().toString();
                     char arr[] = s.toCharArray();
                     if (arr[0] == '-')
-                        eSci2.setText(s.substring(1, s.length()));
+                        downSciEt.setText(s.substring(1, s.length()));
                     else
-                        eSci2.setText("-" + s);
+                        downSciEt.setText("-" + s);
                 }
                 break;
             case R.id.num0:
-                eSci2.setText(eSci2.getText() + "0");
+                downSciEt.setText(downSciEt.getText() + "0");
                 break;
             case R.id.dot:
-                if (countSci == 0 && eSci2.length() != 0) {
-                    eSci2.setText(eSci2.getText() + ".");
+                if (countSci == 0 && downSciEt.length() != 0) {
+                    downSciEt.setText(downSciEt.getText() + ".");
                     countSci++;
                 }
                 break;
@@ -406,11 +410,11 @@ public class ScientificCalFrag extends Fragment {
                 operationClicked("+");
                 break;
             case R.id.equal:
-                if (eSci2.length() != 0) {
-                    textSci = eSci2.getText().toString();
-                    expressionSci = eSci1.getText().toString() + textSci;
+                if (downSciEt.length() != 0) {
+                    textSci = downSciEt.getText().toString();
+                    expressionSci = upperSciEt.getText().toString() + textSci;
                 }
-                eSci1.setText(expressionSci);
+                upperSciEt.setText(expressionSci);
                 if (expressionSci.length() == 0)
                     expressionSci = "0.0";
                 try {
@@ -419,16 +423,16 @@ public class ScientificCalFrag extends Fragment {
                     //insert expression and result in sqlite database if expression is valid and not 0.0
                     if (String.valueOf(resultSci).equals("6.123233995736766E-17")) {
                         resultSci = 0.0;
-                        eSci2.setText(resultSci + "");
+                        downSciEt.setText(resultSci + "");
                     } else if (String.valueOf(resultSci).equals("1.633123935319537E16"))
-                        eSci2.setText("infinity");
+                        downSciEt.setText("infinity");
                     else
-                        eSci2.setText(resultSci + "");
+                        downSciEt.setText(resultSci + "");
                     if (!expressionSci.equals("0.0"))
                         dbHelperSci.insert("SCIENTIFIC", expressionSci + " = " + resultSci);
                 } catch (Exception e) {
-                    eSci2.setText("Invalid Expression");
-                    eSci1.setText("");
+                    downSciEt.setText("Invalid Expression");
+                    upperSciEt.setText("");
                     expressionSci = "";
                     e.printStackTrace();
                 }
@@ -438,10 +442,10 @@ public class ScientificCalFrag extends Fragment {
 //                eSci1.setText(eSci1.getText() + "(");
 //                break;
             case R.id.openCloseBracket:
-                if (eSci2.length() != 0)
-                    eSci1.setText(eSci1.getText() + eSci2.getText().toString() + ")");
+                if (downSciEt.length() != 0)
+                    upperSciEt.setText(upperSciEt.getText() + downSciEt.getText().toString() + ")");
                 else
-                    eSci1.setText(eSci1.getText() + ")");
+                    upperSciEt.setText(upperSciEt.getText() + ")");
                 break;
             case R.id.closeBracket:
                 break;
@@ -449,17 +453,44 @@ public class ScientificCalFrag extends Fragment {
     }
 
     private void operationClicked(String op) {
-        if (eSci2.length() != 0) {
-            String text = eSci2.getText().toString();
-            eSci1.setText(eSci1.getText() + text + op);
-            eSci2.setText("");
+        if (downSciEt.length() != 0) {
+            String text = downSciEt.getText().toString();
+            upperSciEt.setText(upperSciEt.getText() + text + op);
+            downSciEt.setText("");
             countSci = 0;
         } else {
-            String text = eSci1.getText().toString();
+            String text = upperSciEt.getText().toString();
             if (text.length() > 0) {
                 String newText = text.substring(0, text.length() - 1) + op;
-                eSci1.setText(newText);
+                upperSciEt.setText(newText);
             }
+        }
+    }
+
+    private void percentClickListener() {
+        String text;
+        String expression = "null";
+        double result = 0;
+        if(upperSciEt.length()!=0)
+        {
+            text= downSciEt.getText().toString();
+            expression= upperSciEt.getText().toString()+text;
+            result = Double.parseDouble(text)/100;
+        }
+
+        try
+        {
+            upperSciEt.setText(expression);
+            upperSciEt.setText(result+"");
+            if(expression.length()==0)
+                expression="0.0";
+        }
+        catch (Exception e)
+        {
+            downSciEt.setText("Invalid Expression");
+            upperSciEt.setText("");
+            expression="";
+            e.printStackTrace();
         }
     }
 }
