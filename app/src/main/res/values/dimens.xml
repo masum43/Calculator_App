@@ -10,4 +10,7 @@
     <dimen name="unit_text_size">12sp</dimen>
     <dimen name="unit_text_margin_top">5dp</dimen>
     <dimen name="ll_unit_margin_top">25dp</dimen>
+    <dimen name="nav_header_text_padding">@dimen/_20sdp</dimen>
+    <dimen name="nav_header_txt_size">@dimen/_15ssp</dimen>
+    <dimen name="nav_header_margin_top">@dimen/_15sdp</dimen>
 </resources>

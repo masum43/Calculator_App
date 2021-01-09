@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/homeparent_id"
+    android:background="@color/colorPrimary"
+    android:layout_height="wrap_content"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerVertical="true"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/common"
+                    android:id="@+id/commonMode"
+                    android:background="@null"
+                    android:textColor="@color/red_light"
+                    android:textSize="15sp"
+                    android:textAllCaps="false"
+                    />
+
+                <View
+                    android:id="@+id/commonLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/red_light"
+                    />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/separate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="15dp"
+                android:textColor="#FFFFFF"
+                android:layout_toEndOf="@+id/ll_common"
+                android:layout_toRightOf="@+id/ll_common"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_sci_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/separate"
+                android:layout_toRightOf="@+id/separate"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scientific"
+                    android:id="@+id/sciMode"
+                    android:background="@null"
+                    android:textColor="@color/colorBtnText"
+                    android:textSize="15sp"
+                    android:textAllCaps="false"
+                    />
+
+                <View
+                    android:visibility="gone"
+                    android:id="@+id/sciLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/red_light"
+                    />
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/separate2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="#FFFFFF"
+                android:layout_toEndOf="@+id/ll_sci_btn"
+                android:layout_toRightOf="@+id/ll_sci_btn" />
+
+            <LinearLayout
+                android:id="@+id/ll_unit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/separate2"
+                android:layout_toRightOf="@+id/separate2"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Converter"
+                    android:id="@+id/unitMode"
+                    android:background="@null"
+                    android:textColor="@color/colorBtnText"
+                    android:textSize="15sp"
+                    android:textAllCaps="false"
+                    />
+
+                <View
+                    android:visibility="gone"
+                    android:id="@+id/unitLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/red_light"
+                    />
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_history_24"
+                android:layout_marginEnd="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:id="@+id/history"
+                android:layout_marginRight="10dp" />
+
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

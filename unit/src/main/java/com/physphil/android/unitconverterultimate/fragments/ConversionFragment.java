@@ -508,23 +508,23 @@ public final class ConversionFragment extends Fragment implements ConversionView
         download.setVisible(mConversionId == Conversion.CURRENCY);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_download) {
-            mPresenter.onUpdateCurrencyConversions();
-        }
-        else if (item.getItemId() == R.id.menu_clear) {
-            mTxtValue.setText("");
-        }
-
-        else if (item.getItemId() == R.id.menu_help) {
-            HelpDialogFragment.newInstance().show(getChildFragmentManager(), HelpDialogFragment.TAG);
-        }
-
-        else if (item.getItemId() == R.id.menu_settings) {
-            PreferencesActivity.start(getActivity());
-        }
-        else return super.onOptionsItemSelected(item);
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if (item.getItemId() == R.id.menu_download) {
+//            mPresenter.onUpdateCurrencyConversions();
+//        }
+//        else if (item.getItemId() == R.id.menu_clear) {
+//            mTxtValue.setText("");
+//        }
+//
+//        else if (item.getItemId() == R.id.menu_help) {
+//            HelpDialogFragment.newInstance().show(getChildFragmentManager(), HelpDialogFragment.TAG);
+//        }
+//
+//        else if (item.getItemId() == R.id.menu_settings) {
+//            PreferencesActivity.start(getActivity());
+//        }
+//        else return super.onOptionsItemSelected(item);
 //        switch (item.getItemId()) {
 //            case R.id.menu_download:
 //                mPresenter.onUpdateCurrencyConversions();
@@ -545,7 +545,7 @@ public final class ConversionFragment extends Fragment implements ConversionView
 //
 //            default:
 //                return super.onOptionsItemSelected(item);
-//        }
-        return super.onOptionsItemSelected(item);
-    }
+////        }
+//        return super.onOptionsItemSelected(item);
+  //  }
 }

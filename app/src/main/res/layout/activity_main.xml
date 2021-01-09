@@ -10,153 +10,63 @@
     android:background="@color/colorPrimaryDark"
     tools:context="anubhav.calculatorapp.main.MainActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
-        >
-
-        <LinearLayout
-            android:id="@+id/ll_common"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/common"
-                android:id="@+id/commonMode"
-                android:background="@null"
-                android:textColor="@color/red_light"
-                android:textSize="15sp"
-                android:textAllCaps="false"
-                />
-
-            <View
-                android:id="@+id/commonLine"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/red_light"
-                />
-
-        </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/separate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="|"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="15dp"
-            android:textColor="#FFFFFF"
-            android:layout_toEndOf="@+id/ll_common"
-            android:layout_toRightOf="@+id/ll_common"
-            />
-
-        <LinearLayout
-            android:id="@+id/ll_sci_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/separate"
-            android:layout_toRightOf="@+id/separate"
-            android:layout_centerVertical="true"
-            android:orientation="vertical"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/scientific"
-                android:id="@+id/sciMode"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="15sp"
-                android:textAllCaps="false"
-                />
-
-            <View
-                android:visibility="gone"
-                android:id="@+id/sciLine"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/red_light"
-                />
-        </LinearLayout>
-
-
-
-        <TextView
-            android:id="@+id/separate2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="|"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:textColor="#FFFFFF"
-            android:layout_toEndOf="@+id/ll_sci_btn"
-            android:layout_toRightOf="@+id/ll_sci_btn" />
-
-        <LinearLayout
-            android:id="@+id/ll_unit_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/separate2"
-            android:layout_toRightOf="@+id/separate2"
-            android:layout_centerVertical="true"
-            android:orientation="vertical"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Converter"
-                android:id="@+id/unitMode"
-                android:background="@null"
-                android:textColor="@color/colorBtnText"
-                android:textSize="15sp"
-                android:textAllCaps="false"
-                />
-
-            <View
-                android:visibility="gone"
-                android:id="@+id/unitLine"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/red_light"
-                />
-        </LinearLayout>
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_history_24"
-            android:layout_marginEnd="20dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:id="@+id/history"
-            android:layout_marginRight="10dp" />
-
-
-    </RelativeLayout>
-
-    <FrameLayout
-        android:orientation="vertical"
-        android:id="@+id/fragment_container"
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        />
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start"
+        tools:context=".common.activity.MainActivity">
 
 
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".Activity.MainActivity"
+            >
+
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsingToolbarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:contentScrim="?attr/colorPrimary"
+                    >
+
+                    <include
+                        layout="@layout/app_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        />
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <FrameLayout
+                android:orientation="vertical"
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="?attr/actionBarSize"
+                />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header"
+            app:menu="@menu/drawer_menu" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 
 

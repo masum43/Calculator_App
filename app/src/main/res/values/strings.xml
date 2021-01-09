@@ -94,5 +94,12 @@
     <string name="unit_converter">UNIT CONVERTER</string>
     <string name="area">Area</string>
     <string name="cooking">Cooking</string>
-    <string name="currency">Currency</string>>
+    <string name="currency">Currency</string>
+    <string name="favorites">Favorites</string>
+    <string name="common_calculator">Common Calculator</string>
+    <string name="scientific_calculator">Scientific Calculator</string>
+    <string name="currency_converter">Currency Converter</string>
+
+    <string name="navigation_drawer_open" translatable="false">open</string>
+    <string name="navigation_drawer_close" translatable="false">close</string>>
 </resources>

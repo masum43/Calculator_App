@@ -29,9 +29,9 @@
         <item>9</item>
         <item>10</item>
     </string-array>
-    <color name="color_accent">@color/theme_blue_dark</color>
-    <color name="color_primary">@color/theme_blue</color>
-    <color name="color_primary_dark">@color/theme_blue_dark</color>
+    <color name="color_accent">#F44336</color>
+    <color name="color_primary">#F44336</color>
+    <color name="color_primary_dark">#F44336</color>
     <color name="ic_launcher_background">#3B73AF</color>
     <color name="navigation_item_background">#444444</color>
     <color name="navigation_item_background_light">#DDDDDD</color>
@@ -335,9 +335,9 @@
 
     </style>
     <style name="RadioButtonStyle" parent="Theme.AppCompat.Light">
-        <!-- color of radio button -->
+        
         <item name="colorAccent">#FFFFFF</item>
-        <!-- default color of radio button -->
+        
         <item name="android:textColorPrimary">@android:color/background_light</item>
 
     </style>

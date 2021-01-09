@@ -1,13 +1,27 @@
 package anubhav.calculatorapp.main;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.navigation.NavigationView;
+import com.physphil.android.unitconverterultimate.Constant;
+import com.physphil.android.unitconverterultimate.api.models.Currency;
+import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
+import com.physphil.android.unitconverterultimate.models.Conversion;
+import com.physphil.android.unitconverterultimate.settings.PreferencesActivity;
 
 import anubhav.calculatorapp.R;
 import anubhav.calculatorapp.unit.UnitConverterFrag;
@@ -18,7 +32,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     @BindView(R.id.commonMode)
     TextView commonMode;
@@ -42,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setFragment(new CommonCalFrag());
+
+        inflateNavDrawer();
 
 
     }
@@ -107,5 +123,65 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
         }
+    }
+
+    private void inflateNavDrawer() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.inflateMenu(R.menu.drawer_menu);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+        //toolbar.setNavigationIcon(getDrawable(this, R.drawable.ic_baseline_search_24));
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+
+        //header
+        View headerview = navigationView.getHeaderView(0);
+        LinearLayout menuSetting = headerview.findViewById(R.id.menu_settings);
+        LinearLayout menuRating = headerview.findViewById(R.id.menu_rating);
+        LinearLayout menuRemoveAds = headerview.findViewById(R.id.menu_remove_ads);
+        menuSetting.setOnClickListener(v -> PreferencesActivity.start(MainActivity.this));
+        menuRating.setOnClickListener(v -> rateThisApp());
+    }
+
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.common:
+                setFragment(new CommonCalFrag());
+                break;
+
+            case R.id.scientific:
+                setFragment(new ScientificCalFrag());
+                break;
+
+            case R.id.currency_converter:
+                Constant.globalConversionId = Conversion.CURRENCY;
+                setFragment(new ConversionFragment());
+                break;
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+
+    }
+
+    private void rateThisApp() {
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
     }
 }
