@@ -285,5 +285,6 @@
     <string name="lira">Turkse Lira</string>
     <string name="usd">Amerikaanse Dollar</string>
     <string name="zar">Zuid-Afrikaanse Rand</string>
+    <string name="choose_language">Choose Language</string>
 
 </resources>

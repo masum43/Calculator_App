@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FDE8E8EF"
+    tools:context=".purchase.AdPurchaseActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        >
+
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_centerVertical="true"
+            android:onClick="onBackClick"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Premium Version"
+            android:textSize="@dimen/_17ssp"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_45sdp"
+            android:layout_marginLeft="@dimen/_40sdp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="@dimen/_5sdp"
+            android:onClick="tryAdFreeBtnClick"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TRY AD-FREE VERSION FOR FREE"
+                android:textColor="@color/theme_white"
+                android:layout_gravity="center"
+                android:padding="@dimen/_10sdp"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:textColor="#222222"
+            android:textSize="@dimen/_14ssp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_20sdp"
+            android:text="@string/ad_free_text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_10sdp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="@dimen/_5sdp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PURCHASE $6.35"
+                android:textColor="@color/theme_white"
+                android:layout_gravity="center"
+                android:padding="@dimen/_10sdp"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:textColor="#222222"
+            android:textSize="@dimen/_14ssp"
+            android:paddingRight="@dimen/_10sdp"
+            android:text="@string/ad_purchase_text1" />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

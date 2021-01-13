@@ -271,5 +271,6 @@
     <string name="lira">Tyrkiske Lira</string>
     <string name="usd">Amerikanske Dollar</string>
     <string name="zar">Sør-Afrikanske Rand</string>
+    <string name="choose_language">Choose Language</string>
 
 </resources>

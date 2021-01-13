@@ -17,13 +17,16 @@
 package com.physphil.android.unitconverterultimate;
 
 import android.app.Application;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+import android.util.Log;
 
+import com.physphil.android.unitconverterultimate.lang.AppLangSessionManager;
 import com.physphil.android.unitconverterultimate.util.Conversions;
 
-/**
- * Application class
- * Created by pshadlyn on 8/10/2015.
- */
+import java.util.Locale;
+
 public class UnitConverterApplication extends Application {
 
     public static final String BUILD_FLAVOUR_GOOGLE = "google";
@@ -34,5 +37,21 @@ public class UnitConverterApplication extends Application {
         super.onCreate();
         // Initialize conversions object, and load currency if stored
         Conversions.getInstance().updateCurrencyConversions(this);
+
+        if (!AppLangSessionManager.getLanguage(this).equals(""))
+            setLocale(AppLangSessionManager.getLanguage(this));
+    }
+
+    public void setLocale(String lang) {
+        if (lang.equals("")){
+            lang="en";
+        }
+        Log.d("Support",lang+"");
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
     }
 }

@@ -1,13 +1,19 @@
 package anubhav.calculatorapp.main;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,14 +22,24 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.navigation.NavigationView;
 import com.physphil.android.unitconverterultimate.Constant;
-import com.physphil.android.unitconverterultimate.api.models.Currency;
 import com.physphil.android.unitconverterultimate.fragments.ConversionFragment;
 import com.physphil.android.unitconverterultimate.models.Conversion;
 import com.physphil.android.unitconverterultimate.settings.PreferencesActivity;
 
+import anubhav.calculatorapp.Config;
+import anubhav.calculatorapp.Methods;
 import anubhav.calculatorapp.R;
+import anubhav.calculatorapp.pref.AdLockPref;
+import anubhav.calculatorapp.purchase.AdPurchaseActivity;
 import anubhav.calculatorapp.unit.UnitConverterFrag;
 import anubhav.calculatorapp.common.CommonCalFrag;
 import anubhav.calculatorapp.history.HistoryActivity;
@@ -49,12 +65,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.unitLine)
     View unitLine;
 
+    private FrameLayout adContainerView;
+    private AdView adView;
+
+    public static InterstitialAd mInterstitialAd;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        if (AdLockPref.getAdLockState(this, Methods.getCurrentDate())) //if true
+            Config.isAdEnabled = false;
 
+        if (Config.isAdEnabled) {
+            MobileAds.initialize(this, initializationStatus -> {});
+            inflateAdmobAdaptiveBanner();
+            loadAdmobInters();
+        }
         setFragment(new CommonCalFrag());
 
         inflateNavDrawer();
@@ -88,6 +117,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 setFragment(new CommonCalFrag());
                 break;
             case R.id.sciMode:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 commonMode.setTextColor(getResources().getColor(R.color.white));
                 commonLine.setVisibility(View.GONE);
                 unitMode.setTextColor(getResources().getColor(R.color.white));
@@ -141,6 +172,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
         navigationView.setNavigationItemSelectedListener(this);
 
         //header
@@ -150,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         LinearLayout menuRemoveAds = headerview.findViewById(R.id.menu_remove_ads);
         menuSetting.setOnClickListener(v -> PreferencesActivity.start(MainActivity.this));
         menuRating.setOnClickListener(v -> rateThisApp());
+        menuRemoveAds.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, AdPurchaseActivity.class)));
     }
 
 
@@ -184,4 +217,83 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(new Intent(Intent.ACTION_VIEW,
                 Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
     }
+
+    private void inflateAdmobAdaptiveBanner() {
+        adContainerView = findViewById(R.id.ad_view_container);
+        // Step 1 - Create an AdView and set the ad unit ID on it.
+        adView = new AdView(this);
+        adView.setAdUnitId(getString(R.string.adaptive_banner_ad_unit_id));
+        adContainerView.addView(adView);
+        loadBanner();
+    }
+
+    private void loadBanner() {
+        // Create an ad request. Check your logcat output for the hashed device ID
+        // to get test ads on a physical device, e.g.,
+        // "Use AdRequest.Builder.addTestDevice("ABCDE0123") to get test ads on this
+        // device."
+        AdRequest adRequest =
+                new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                        .build();
+
+        AdSize adSize = getAdSize();
+        // Step 4 - Set the adaptive ad size on the ad view.
+        adView.setAdSize(adSize);
+
+
+        // Step 5 - Start loading the ad in the background.
+        adView.loadAd(adRequest);
+    }
+
+    private AdSize getAdSize() {
+        // Step 2 - Determine the screen width (less decorations) to use for the ad width.
+        Display display = getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+
+        float widthPixels = outMetrics.widthPixels;
+        float density = outMetrics.density;
+
+        int adWidth = (int) (widthPixels / density);
+
+        // Step 3 - Get adaptive ad size and return for setting on the ad view.
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
+    }
+
+    public void loadAdmobInters(){
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getResources().getString(R.string.admob_inters)); //<string name="admob_inters">ca-app-pub-3940256099942544/1033173712</string>
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+        mInterstitialAd.loadAd(adRequest);
+        mInterstitialAd.setAdListener(new AdListener(){
+
+            @Override
+            public void onAdFailedToLoad(LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+                Log.d("error_ad", loadAdError.getMessage());
+            }
+            @Override
+            public void onAdClosed()
+            {
+                //reload interstitial
+                AdRequest adRequest = new AdRequest.Builder()
+//                        .addTestDevice("YOUR_DEVICE_ID")
+                        .build();
+                mInterstitialAd.loadAd(adRequest);
+            }
+        });
+
+    }
+
+    public static void showInterstitial() {
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
+    }
+
+
+
+
 }

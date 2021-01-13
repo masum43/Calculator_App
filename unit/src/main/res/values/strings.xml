@@ -292,5 +292,6 @@
     <string name="prefs_summary_acknowledgements">I owe a big thank you to all these fine folks!</string>
     <string name="isk">Icelandic Krona</string>
     <string name="language_norwegian">Norwegian</string>
+    <string name="choose_language">Choose Language</string>
 
 </resources>

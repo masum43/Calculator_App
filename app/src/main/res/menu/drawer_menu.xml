@@ -4,40 +4,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
-    <item
-        android:id="@+id/text_style"
-        android:title="@string/favorites"
-        app:showAsAction="always|withText"
-        android:icon="@drawable/ic_baseline_history_24"
-        android:orderInCategory="1"
-        >
-        <!-- text style menu's sub menu start from here -->
-        <menu>
-            <!-- first group (text color) of text style sub menu -->
-            <group
-                android:id="@+id/text_color_group"
-                android:checkableBehavior="single"
-                >
-                <!-- text color group's items -->
-                <item
-                    android:id="@+id/common"
-                    android:title="@string/common_calculator"
-                    android:icon="@drawable/ic_cooking"
-                    />
-                <item
-                    android:id="@+id/scientific"
-                    android:title="@string/scientific_calculator"
-                    android:icon="@drawable/ic_area"
-                    />
-                <item
-                    android:id="@+id/currency_converter"
-                    android:title="@string/currency_converter"
-                    android:icon="@drawable/ic_currency"
-                    />
-            </group>
+      <!-- text color group's items -->
+      <item
+          android:id="@+id/all_cal"
+          android:title="@string/all_calculator"
+          />
 
-        </menu>
-    </item>
-    <!-- bold text menu item -->
+      <item
+          android:id="@+id/common"
+          android:title="@string/common_calculator"
+          />
+      <item
+          android:id="@+id/scientific"
+          android:title="@string/scientific_calculator"
+          />
+      <item
+          android:id="@+id/currency_converter"
+          android:title="@string/currency_converter"
+          />
 
 </menu>

@@ -268,5 +268,6 @@
     <string name="lira">Турецкая лира</string>
     <string name="usd">Доллар США</string>
     <string name="zar">Южноафриканский рэнд</string>
+    <string name="choose_language">Choose Language</string>
 
 </resources>

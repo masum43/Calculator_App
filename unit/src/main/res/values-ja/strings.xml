@@ -268,5 +268,6 @@
     <string name="lira">トルコ・リラ</string>
     <string name="usd">米ドル</string>
     <string name="zar">南アフリカ・ランド</string>
+    <string name="choose_language">Choose Language</string>
 
 </resources>

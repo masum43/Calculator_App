@@ -101,5 +101,14 @@
     <string name="currency_converter">Currency Converter</string>
 
     <string name="navigation_drawer_open" translatable="false">open</string>
-    <string name="navigation_drawer_close" translatable="false">close</string>>
+    <string name="navigation_drawer_close" translatable="false">close</string>
+    <string name="all_calculator">All Calculator</string>
+    <string name="ad_free_text">If you watch the video ad until the end, you can remove the ads from the app until tomorrow.</string>
+    <string name="ad_purchase_text1">All ads will be permanently removed once you purchase the premium version.</string>
+    <string name="ad_purchase_text2">As all ads are removed, you can use this app in wider screen. Moreover, all pesky review request pop-up windows will disappear.</string>
+    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="adaptive_banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_inters">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="rewarded_ad_id">ca-app-pub-3940256099942544/5224354917</string>
+    >
 </resources>

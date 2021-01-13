@@ -268,5 +268,6 @@
     <string name="lira">Turska lira</string>
     <string name="usd">Američki dolar</string>
     <string name="zar">Južnoafrički rand</string>
+    <string name="choose_language">Choose Language</string>
 
 </resources>

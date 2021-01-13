@@ -1204,7 +1204,6 @@ id list_item
 id masked
 id media_actions
 id menu_clear
-id menu_donate
 id menu_download
 id menu_help
 id menu_settings

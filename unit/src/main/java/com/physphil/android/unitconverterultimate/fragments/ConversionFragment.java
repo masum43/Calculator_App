@@ -40,6 +40,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.physphil.android.unitconverterultimate.BuildConfig;
 import com.physphil.android.unitconverterultimate.Constant;
+import com.physphil.android.unitconverterultimate.MainActivity;
 import com.physphil.android.unitconverterultimate.R;
 import com.physphil.android.unitconverterultimate.UnitConverterApplication;
 import com.physphil.android.unitconverterultimate.data.DataAccess;
@@ -124,6 +125,10 @@ public final class ConversionFragment extends Fragment implements ConversionView
         mTxtUnitFrom = (TextView) v.findViewById(R.id.header_text_unit_from);
         mTxtUnitTo = (TextView) v.findViewById(R.id.header_text_unit_to);
         mTxtValue = (EditText) v.findViewById(R.id.header_value_from);
+
+
+
+
         if (savedInstanceState == null) {
             String value = mPrefs.getLastValue();
             if (mConversionId != Conversion.TEMPERATURE) {
@@ -470,16 +475,6 @@ public final class ConversionFragment extends Fragment implements ConversionView
                 mState.setToId(checkedId);
                 mTxtUnitTo.setText(unit.getLabelResource());
             }
-//            switch (group.getId()) {
-//                case R.id.radio_group_from:
-//
-//                    break;
-//
-//                case R.id.radio_group_to:
-//                    mState.setToId(checkedId);
-//                    mTxtUnitTo.setText(unit.getLabelResource());
-//                    break;
-//            }
 
             convert();
         }
@@ -495,57 +490,17 @@ public final class ConversionFragment extends Fragment implements ConversionView
         }
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_conversion_fragment, menu);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        MenuItem download = menu.findItem(R.id.menu_download);
-        download.setVisible(mConversionId == Conversion.CURRENCY);
-    }
-
 //    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        if (item.getItemId() == R.id.menu_download) {
-//            mPresenter.onUpdateCurrencyConversions();
-//        }
-//        else if (item.getItemId() == R.id.menu_clear) {
-//            mTxtValue.setText("");
-//        }
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        super.onCreateOptionsMenu(menu, inflater);
+//        inflater.inflate(R.menu.menu_conversion_fragment, menu);
+//    }
 //
-//        else if (item.getItemId() == R.id.menu_help) {
-//            HelpDialogFragment.newInstance().show(getChildFragmentManager(), HelpDialogFragment.TAG);
-//        }
-//
-//        else if (item.getItemId() == R.id.menu_settings) {
-//            PreferencesActivity.start(getActivity());
-//        }
-//        else return super.onOptionsItemSelected(item);
-//        switch (item.getItemId()) {
-//            case R.id.menu_download:
-//                mPresenter.onUpdateCurrencyConversions();
-//                return true;
-//
-//            case R.id.menu_clear:
-//                mTxtValue.setText("");
-//                return true;
-//
-//            case R.id.menu_help:
-//                HelpDialogFragment.newInstance().show(getChildFragmentManager(), HelpDialogFragment.TAG);
-//                return true;
-//
-//            case R.id.menu_settings:
-//                PreferencesActivity.start(getActivity());
-//                return true;
-//
-//
-//            default:
-//                return super.onOptionsItemSelected(item);
-////        }
-//        return super.onOptionsItemSelected(item);
-  //  }
+//    @Override
+//    public void onPrepareOptionsMenu(Menu menu) {
+//        super.onPrepareOptionsMenu(menu);
+//        MenuItem download = menu.findItem(R.id.menu_download);
+//        download.setVisible(mConversionId == Conversion.CURRENCY);
+//    }
+
 }

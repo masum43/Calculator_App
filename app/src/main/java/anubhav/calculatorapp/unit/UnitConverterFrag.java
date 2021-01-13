@@ -16,10 +16,13 @@ import com.physphil.android.unitconverterultimate.models.Conversion;
 
 import java.util.HashMap;
 
+import anubhav.calculatorapp.Config;
 import anubhav.calculatorapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static anubhav.calculatorapp.main.MainActivity.showInterstitial;
 
 public class UnitConverterFrag extends Fragment {
 
@@ -126,62 +129,93 @@ public class UnitConverterFrag extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_area:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.AREA;
+
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_cooking:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.COOKING;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_currency:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.CURRENCY;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_storage:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.STORAGE;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_energy:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.ENERGY;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_fuel:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.FUEL;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_length:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.LENGTH;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_mass:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.MASS;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_power:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.POWER;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_pressure:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.PRESSURE;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_speed:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.SPEED;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_temperature:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.TEMPERATURE;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_time:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.TIME;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_torque:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.TORQUE;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;
             case R.id.ll_volume:
+                if (Config.isAdEnabled)
+                    showInterstitial();
                 Constant.globalConversionId = Conversion.VOLUME;
                 goToOtherFragment(getContext(), new ConversionFragment());
                 break;

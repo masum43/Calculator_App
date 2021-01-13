@@ -83,7 +83,6 @@ id header_value_from
 id header_value_to
 id list_coordinator_layout
 id menu_clear
-id menu_donate
 id menu_download
 id menu_help
 id menu_settings

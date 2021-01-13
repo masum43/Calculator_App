@@ -271,5 +271,6 @@
     <string name="lira">Török líra</string>
     <string name="usd">Amerikai dollár</string>
     <string name="zar">Dél-afrikai rand</string>
+    <string name="choose_language">Choose Language</string>
 
 </resources>
