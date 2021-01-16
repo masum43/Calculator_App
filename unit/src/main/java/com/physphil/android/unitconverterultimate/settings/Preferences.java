@@ -99,7 +99,7 @@ public class Preferences {
     }
 
     public static int getNumberDecimals() {
-        return Integer.parseInt(mPrefs.getString(PREFS_NUMBER_OF_DECIMALS, "4"));
+        return Integer.parseInt(mPrefs.getString(PREFS_NUMBER_OF_DECIMALS, "0"));
     }
 
     public static String getDecimalSeparator() {

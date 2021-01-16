@@ -47,6 +47,8 @@
             android:textColor="@color/theme_white"
             android:textColorHint="@color/theme_white"
             app:backgroundTint="#FFFFFF"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@null"
             android:maxLength="@integer/num_digits_from"
             android:layout_gravity="bottom"
             android:scrollHorizontally="true"
