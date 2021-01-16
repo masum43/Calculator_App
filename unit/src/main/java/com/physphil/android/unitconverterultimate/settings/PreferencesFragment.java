@@ -45,10 +45,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Locale;
 
-/**
- * Fragment to display preferences screen
- * Created by Phizz on 15-08-02.
- */
 public class PreferencesFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     public static PreferencesFragment newInstance() {
@@ -71,15 +67,15 @@ public class PreferencesFragment extends PreferenceFragment implements SharedPre
         });
 
 
-        final Preference language = findPreference("language");
-        language.setOnPreferenceChangeListener(new Preference.OnPreferenceClickListener() {
-
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                showLanguageChangeDialog();
-                return true;
-            }
-        });
+//        final Preference language = findPreference("language");
+//        language.setOnPreferenceChangeListener(new Preference.OnPreferenceClickListener() {
+//
+//            @Override
+//            public boolean onPreferenceClick(Preference preference) {
+//                showLanguageChangeDialog();
+//                return true;
+//            }
+//        });
         //sortLanguageOptions(language);
     }
 

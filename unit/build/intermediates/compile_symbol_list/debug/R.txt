@@ -1475,6 +1475,7 @@ int string centimetre 0x0
 int string character_counter_content_description 0x0
 int string character_counter_pattern 0x0
 int string chf 0x0
+int string choose_language 0x0
 int string cny 0x0
 int string cooking 0x0
 int string cubic_cm 0x0

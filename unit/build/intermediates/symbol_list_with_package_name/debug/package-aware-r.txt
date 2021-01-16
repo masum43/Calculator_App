@@ -1476,6 +1476,7 @@ string centimetre
 string character_counter_content_description
 string character_counter_pattern
 string chf
+string choose_language
 string cny
 string cooking
 string cubic_cm

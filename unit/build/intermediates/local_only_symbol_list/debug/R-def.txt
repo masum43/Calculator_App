@@ -130,6 +130,7 @@ string cdn
 string celsius
 string centimetre
 string chf
+string choose_language
 string cny
 string cooking
 string cubic_cm

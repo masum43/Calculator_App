@@ -1,6 +1,5 @@
 package anubhav.calculatorapp.main;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,8 +36,10 @@ import com.physphil.android.unitconverterultimate.settings.PreferencesActivity;
 import anubhav.calculatorapp.Config;
 import anubhav.calculatorapp.Methods;
 import anubhav.calculatorapp.R;
+import anubhav.calculatorapp.billing.AdsSubscriptionActivity;
+import anubhav.calculatorapp.billing.BillingClass;
+import anubhav.calculatorapp.billing.SubscriptionConfig;
 import anubhav.calculatorapp.pref.AdLockPref;
-import anubhav.calculatorapp.purchase.AdPurchaseActivity;
 import anubhav.calculatorapp.unit.UnitConverterFrag;
 import anubhav.calculatorapp.common.CommonCalFrag;
 import anubhav.calculatorapp.history.HistoryActivity;
@@ -48,7 +48,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BillingClass.BillingErrorHandler{
 
     @BindView(R.id.commonMode)
     TextView commonMode;
@@ -70,25 +70,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public static InterstitialAd mInterstitialAd;
 
+    private BillingClass billingClass;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        if (AdLockPref.getAdLockState(this, Methods.getCurrentDate())) //if true
-            Config.isAdEnabled = false;
 
-        if (Config.isAdEnabled) {
-            MobileAds.initialize(this, initializationStatus -> {});
-            inflateAdmobAdaptiveBanner();
-            loadAdmobInters();
-        }
+        newSubsInit();
         setFragment(new CommonCalFrag());
 
         inflateNavDrawer();
 
 
+    }
+
+    private void newSubsInit() {
+        billingClass = new BillingClass(this);
+        billingClass.setmCallback(this);
+
+        billingClass.startConnection();
     }
 
     private boolean setFragment(Fragment fragment) {
@@ -182,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         LinearLayout menuRemoveAds = headerview.findViewById(R.id.menu_remove_ads);
         menuSetting.setOnClickListener(v -> PreferencesActivity.start(MainActivity.this));
         menuRating.setOnClickListener(v -> rateThisApp());
-        menuRemoveAds.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, AdPurchaseActivity.class)));
+        menuRemoveAds.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, AdsSubscriptionActivity.class)));
     }
 
 
@@ -293,7 +297,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    @Override
+    public void displayErrorMessage(String message) {
+        if (message.equals("done")) {
+
+            SubscriptionConfig.isIAPConnected = true;
+
+            if (billingClass.isSubscribed(SubscriptionConfig.remove_ads_one_year)) {
+                SubscriptionConfig.ads_subscription = true;
+            }
+            else {
+                if (AdLockPref.getAdLockState(this, Methods.getCurrentDate())) //if true
+                    Config.isAdEnabled = false;
+                if (Config.isAdEnabled) {
+                    MobileAds.initialize(this, initializationStatus -> {});
+                    inflateAdmobAdaptiveBanner();
+                    loadAdmobInters();
+                }
+            }
 
 
+            //check for subscription
+//            startActivity(new Intent(SplashActivity.this, MainActivity.class));
+//            finish();
+        } else if (message.equals("error")) {
+
+            SubscriptionConfig.isIAPConnected = false;
+
+//            startActivity(new Intent(SplashActivity.this, MainActivity.class));
+//            finish();
+        }
+    }
 
 }

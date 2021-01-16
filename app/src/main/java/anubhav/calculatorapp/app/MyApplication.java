@@ -23,7 +23,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 
 import com.physphil.android.unitconverterultimate.lang.AppLangSessionManager;
-import com.physphil.android.unitconverterultimate.util.Conversions;
 
 import java.util.Locale;
 
