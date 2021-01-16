@@ -108,27 +108,28 @@ public class ScientificCalFrag extends Fragment {
                 break;
 
             case R.id.percent:
-                if(downSciEt.length()!=0)
-                {
-                    text= downSciEt.getText().toString();
-                    expression= upperSciEt.getText().toString()+text;
-                    result = Double.parseDouble(text)/100;
-                }
-
-                try
-                {
-                    upperSciEt.setText(expression);
-                    downSciEt.setText(result+"");
-                    if(expression.length()==0)
-                        expression="0.0";
-                }
-                catch (Exception e)
-                {
-                    downSciEt.setText("Invalid Expression");
-                    upperSciEt.setText("");
-                    expression="";
-                    e.printStackTrace();
-                }
+                percentClickListener();
+//                if(downSciEt.length()!=0)
+//                {
+//                    text= downSciEt.getText().toString();
+//                    expression= upperSciEt.getText().toString()+text;
+//                    result = Double.parseDouble(text)/100;
+//                }
+//
+//                try
+//                {
+//                    upperSciEt.setText(expression);
+//                    downSciEt.setText(result+"");
+//                    if(expression.length()==0)
+//                        expression="0.0";
+//                }
+//                catch (Exception e)
+//                {
+//                    downSciEt.setText("Invalid Expression");
+//                    upperSciEt.setText("");
+//                    expression="";
+//                    e.printStackTrace();
+//                }
                 break;
 
             case R.id.openCloseBracket:
@@ -495,6 +496,57 @@ public class ScientificCalFrag extends Fragment {
                 String newText = text.substring(0, text.length() - 1) + op;
                 upperSciEt.setText(newText);
             }
+        }
+    }
+
+    private void percentClickListener() {
+        if(downSciEt.length()!=0)
+        {
+            text = downSciEt.getText().toString();
+            expression= upperSciEt.getText().toString()+text;
+
+
+            if ((upperSciEt.getText().toString() != null) && (upperSciEt.getText().toString().length() > 0)) {
+                String operand = upperSciEt.getText().toString().substring(upperSciEt.getText().toString().length() - 1);
+                if (operand.equals("+")) {
+                    String mainAmount = upperSciEt.getText().toString().substring(0, upperSciEt.getText().toString().length() - 1);
+                    result = Double.parseDouble(mainAmount) + Double.parseDouble(mainAmount) * (Double.parseDouble(text)/100);
+                }
+                else if (operand.equals("-")) {
+                    String mainAmount = upperSciEt.getText().toString().substring(0, upperSciEt.getText().toString().length() - 1);
+                    result = Double.parseDouble(mainAmount) - Double.parseDouble(mainAmount) * (Double.parseDouble(text)/100);
+                }
+                else if (operand.equals("*")) {
+                    String mainAmount = upperSciEt.getText().toString().substring(0, upperSciEt.getText().toString().length() - 1);
+                    result = Double.parseDouble(mainAmount) * Double.parseDouble(mainAmount) * (Double.parseDouble(text)/100);
+                }
+                else if (operand.equals("/")) {
+                    String mainAmount = upperSciEt.getText().toString().substring(0, upperSciEt.getText().toString().length() - 1);
+                    result = Double.parseDouble(mainAmount) / Double.parseDouble(mainAmount) * (Double.parseDouble(text)/100);
+                }
+                else {
+                    result = Double.parseDouble(text)/100;
+                }
+            }
+            else {
+                result = Double.parseDouble(text)/100;
+            }
+
+        }
+
+        try
+        {
+            upperSciEt.setText(expression+"%");
+            downSciEt.setText(result+"");
+            if(expression.length()==0)
+                expression="0.0";
+        }
+        catch (Exception e)
+        {
+            downSciEt.setText("Invalid Expression");
+            upperSciEt.setText("");
+            expression="";
+            e.printStackTrace();
         }
     }
 

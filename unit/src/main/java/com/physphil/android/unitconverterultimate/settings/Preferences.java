@@ -50,7 +50,7 @@ public class Preferences {
     public static final String PREFS_LANGUAGE = "language";
 
     private static Preferences mInstance;
-    private SharedPreferences mPrefs;
+    public static SharedPreferences mPrefs;
     private Context mContext;
 
     public static Preferences getInstance(Context context) {
@@ -98,12 +98,12 @@ public class Preferences {
         mPrefs.edit().putString(PREFS_FROM_VALUE, value).apply();
     }
 
-    public int getNumberDecimals() {
-        return Integer.parseInt(mPrefs.getString(PREFS_NUMBER_OF_DECIMALS, mContext.getString(R.string.default_number_decimals)));
+    public static int getNumberDecimals() {
+        return Integer.parseInt(mPrefs.getString(PREFS_NUMBER_OF_DECIMALS, "4"));
     }
 
-    public String getDecimalSeparator() {
-        return mPrefs.getString(PREFS_DECIMAL_SEPARATOR, mContext.getString(R.string.default_decimal_separator));
+    public static String getDecimalSeparator() {
+        return mPrefs.getString(PREFS_DECIMAL_SEPARATOR, ".");
     }
 
     /**

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 
 import com.fathzer.soft.javaluator.DoubleEvaluator;
+import com.physphil.android.unitconverterultimate.settings.Preferences;
 
 import anubhav.calculatorapp.history.HistoryActivity;
 import anubhav.calculatorapp.R;
@@ -186,14 +187,41 @@ public class CommonCalFrag extends Fragment {
     private void percentClickListener() {
         if(downEt.length()!=0)
         {
-            text= downEt.getText().toString();
+            text = downEt.getText().toString();
             expression= upperEt.getText().toString()+text;
-            result = Double.parseDouble(text)/100;
+
+
+            if ((upperEt.getText().toString() != null) && (upperEt.getText().toString().length() > 0)) {
+                String operand = upperEt.getText().toString().substring(upperEt.getText().toString().length() - 1);
+                if (operand.equals("+")) {
+                    String mainAmount = upperEt.getText().toString().substring(0, upperEt.getText().toString().length() - 1);
+                    result = Double.parseDouble(mainAmount) + Double.parseDouble(mainAmount) * (Double.parseDouble(text)/100);
+                }
+                else if (operand.equals("-")) {
+                    String mainAmount = upperEt.getText().toString().substring(0, upperEt.getText().toString().length() - 1);
+                    result = Double.parseDouble(mainAmount) - Double.parseDouble(mainAmount) * (Double.parseDouble(text)/100);
+                }
+                else if (operand.equals("*")) {
+                    String mainAmount = upperEt.getText().toString().substring(0, upperEt.getText().toString().length() - 1);
+                    result = Double.parseDouble(mainAmount) * Double.parseDouble(mainAmount) * (Double.parseDouble(text)/100);
+                }
+                else if (operand.equals("/")) {
+                    String mainAmount = upperEt.getText().toString().substring(0, upperEt.getText().toString().length() - 1);
+                    result = Double.parseDouble(mainAmount) / Double.parseDouble(mainAmount) * (Double.parseDouble(text)/100);
+                }
+                else {
+                    result = Double.parseDouble(text)/100;
+                }
+            }
+            else {
+                result = Double.parseDouble(text)/100;
+            }
+
         }
 
         try
         {
-            upperEt.setText(expression);
+            upperEt.setText(expression+"%");
             downEt.setText(result+"");
             if(expression.length()==0)
                 expression="0.0";
@@ -223,7 +251,7 @@ public class CommonCalFrag extends Fragment {
             //insert expression and result in sqlite database if expression is valid and not 0.0
             if(!expression.equals("0.0"))
                 dbHelper.insert("STANDARD",expression+" = "+result);
-            downEt.setText(String.format("%.5f", result));
+            downEt.setText(String.format("%."+ Preferences.getNumberDecimals() +"f", result));
         }
         catch (Exception e)
         {

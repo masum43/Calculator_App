@@ -24,10 +24,6 @@ import android.view.MenuItem;
 import com.physphil.android.unitconverterultimate.BaseActivity;
 import com.physphil.android.unitconverterultimate.R;
 
-/**
- * Activity to host preferences fragment
- * Created by Phizz on 15-08-03.
- */
 public class PreferencesActivity extends BaseActivity {
 
     /**

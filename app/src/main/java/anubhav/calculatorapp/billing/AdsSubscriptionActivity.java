@@ -64,4 +64,8 @@ public class AdsSubscriptionActivity extends AppCompatActivity implements Billin
         i.setData(Uri.parse(url));
         startActivity(i);
     }
+
+    public void onBackClick(View view) {
+        finish();
+    }
 }

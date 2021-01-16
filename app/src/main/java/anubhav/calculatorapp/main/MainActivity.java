@@ -209,6 +209,77 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Constant.globalConversionId = Conversion.CURRENCY;
                 setFragment(new ConversionFragment());
                 break;
+
+            case R.id.drawer_area:
+            Constant.globalConversionId = Conversion.AREA;;
+            setFragment(new ConversionFragment());
+            break;
+
+            case R.id.drawer_cooking:
+                Constant.globalConversionId = Conversion.COOKING;
+                setFragment(new ConversionFragment());
+                break;
+
+
+            case R.id.drawer_storage:
+                Constant.globalConversionId = Conversion.STORAGE;
+                setFragment(new ConversionFragment());
+                break;
+
+            case R.id.drawer_energy:
+                Constant.globalConversionId = Conversion.ENERGY;
+                setFragment(new ConversionFragment());
+                break;
+
+            case R.id.drawer_fuel:
+                Constant.globalConversionId = Conversion.FUEL;
+                setFragment(new ConversionFragment());
+                break;
+
+            case R.id.drawer_length:
+                Constant.globalConversionId = Conversion.LENGTH;
+                setFragment(new ConversionFragment());
+                break;
+
+            case R.id.drawer_mass:
+                Constant.globalConversionId = Conversion.MASS;
+                setFragment(new ConversionFragment());
+                break;
+
+            case R.id.drawer_power:
+                Constant.globalConversionId = Conversion.POWER;
+                setFragment(new ConversionFragment());
+                break;
+
+            case R.id.drawer_pressure:
+                Constant.globalConversionId = Conversion.PRESSURE;
+                setFragment(new ConversionFragment());
+                break;
+
+            case R.id.drawer_speed:
+                Constant.globalConversionId = Conversion.SPEED;
+                setFragment(new ConversionFragment());
+                break;
+
+            case R.id.drawer_temperature:
+                Constant.globalConversionId = Conversion.TEMPERATURE;
+                setFragment(new ConversionFragment());
+                break;
+
+            case R.id.drawer_time:
+                Constant.globalConversionId = Conversion.TIME;
+                setFragment(new ConversionFragment());
+                break;
+
+            case R.id.drawer_torque:
+                Constant.globalConversionId = Conversion.TORQUE;
+                setFragment(new ConversionFragment());
+                break;
+
+            case R.id.drawer_volume:
+                Constant.globalConversionId = Conversion.VOLUME;
+                setFragment(new ConversionFragment());
+                break;
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

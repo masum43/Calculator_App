@@ -30,21 +30,21 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/prefs_title_visual">
+<!--    <PreferenceCategory-->
+<!--        android:title="@string/prefs_title_visual">-->
 
 <!--        <CheckBoxPreference-->
 <!--            android:key="light_theme"-->
 <!--            android:title="@string/prefs_title_light_theme"-->
 <!--            android:defaultValue="false" />-->
 
-        <ListPreference
-            android:key="language"
-            android:title="@string/prefs_title_language"
-            android:summary="@string/prefs_summary_language"
-            android:defaultValue="@string/language_code_default"/>
+<!--        <ListPreference-->
+<!--            android:key="language"-->
+<!--            android:title="@string/prefs_title_language"-->
+<!--            android:summary="@string/prefs_summary_language"-->
+<!--            android:defaultValue="@string/language_code_default"/>-->
 
-    </PreferenceCategory>
+<!--    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:key="other"

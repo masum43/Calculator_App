@@ -16,31 +16,24 @@
 
 package com.physphil.android.unitconverterultimate.settings;
 
-import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.util.DisplayMetrics;
-import android.widget.Toast;
-
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
-
-import com.physphil.android.unitconverterultimate.AcknowledgementsActivity;
-import com.physphil.android.unitconverterultimate.BuildConfig;
 import com.physphil.android.unitconverterultimate.MainActivity;
 import com.physphil.android.unitconverterultimate.R;
-import com.physphil.android.unitconverterultimate.UnitConverterApplication;
 import com.physphil.android.unitconverterultimate.lang.AppLangSessionManager;
 import com.physphil.android.unitconverterultimate.models.Language;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Locale;
